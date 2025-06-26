@@ -1,0 +1,25 @@
+.custom-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1e1e2a !important;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.zoom-img {
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover .zoom-img {
+  transform: scale(1.05);
+}
+
+.card-title {
+  color: #f0f0f0;
+}
+
+.card-text {
+  color: #ccc;
+}

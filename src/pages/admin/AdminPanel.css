@@ -1,0 +1,21 @@
+.admin-panel {
+  background-color: #121212;
+  color: #eee;
+  min-height: 100vh;
+}
+
+.admin-panel .table {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+.admin-panel .table th,
+.admin-panel .table td {
+  border-color: #333;
+}
+
+.admin-panel .modal-content {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+

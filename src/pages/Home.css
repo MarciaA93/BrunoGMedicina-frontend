@@ -1,0 +1,157 @@
+/* Hero image */
+.hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+.container-gallery img {
+  width: 100%;
+  height: 200px; /* Podés ajustar la altura según lo que necesites */
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+}
+.card.custom-card {
+  background-color: rgba(0, 0, 0, 0); /* Fondo negro con transparencia */
+  color: white;
+  border: none;
+}
+
+
+/* Galería: desktop/grid */
+.container-gallery {
+  display: flex;
+   
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  gap: 0px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.popup {
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.popup img {
+  width: 100%;
+  display: block;
+  border-radius: 5px;
+}
+
+.popup:hover {
+  transform: translateZ(5px) translateY(-20px) scale(1.05);
+}
+
+
+/* Asegura que la imagen siempre mida lo mismo y se recorte */
+.fixed-card-img {
+  height: 200px;       /* altura fija, ajusta a tu gusto */
+  object-fit: cover;   /* recorta sin deformar */
+}
+
+/* Hace que la card ocupe toda la columna y organice su contenido */
+.card.h-100 {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+/* Opcional: separar un poco el pie de card del resto */
+.card-body .btn {
+  /* si querés que el botón siempre quede abajo */
+  margin-top: auto;
+}
+.card-img-top {
+  height: 200px !important;
+  object-fit: cover !important;
+}
+
+/*home hero*/
+.image-overlay-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* oscurece la imagen */
+  z-index: 1;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  font-size: 2rem;
+  text-align: center;
+}
+
+
+/* Posicionamientos 3D opcionales 
+.popup-1,
+.popup-4 {
+  transform: translateZ(1px);
+}
+.popup-2,
+.popup-5 {
+  transform: translateZ(2px) translateY(-5px);
+}
+.popup-3 {
+  transform: translateZ(3px) translateY(-10px);
+} */
+
+/* ——————————————— */
+/* Mobile: scroll horizontal */
+/* ——————————————— */
+@media (max-width: 576px) {
+  .container-gallery {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    /* Espacio lateral para que el primer item no quede pegado */
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+   
+  .popup {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+    margin: 0 10px; /* espacio lateral entre items */
+  }
+
+  /* Ocultar la barra de scroll en la mayoría de navegadores */
+  .container-gallery::-webkit-scrollbar {
+    display: none;
+  }
+  .container-gallery {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;     /* Firefox */
+  }
+}

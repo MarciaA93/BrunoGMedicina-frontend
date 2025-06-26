@@ -1,0 +1,65 @@
+/*.custom-calendar {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+}
+
+.react-calendar__tile--active {
+  background: #0d6dfd3e !important;
+  color: white !important;
+}*/
+.turnero-container {
+  padding-top: 4rem; /* o el espacio que necesites */
+}
+
+/* Calendario base */
+.custom-calendar {
+  background-color: #141419; /* fondo oscuro */
+  color: #ffffff; /* texto claro */
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+/* Navegación (flechas y mes) */
+.custom-calendar .react-calendar__navigation {
+  background-color: #2a2a3d;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.custom-calendar .react-calendar__navigation button {
+  color: #ffffff;
+  background: none;
+  border: none;
+  font-weight: bold;
+}
+
+.custom-calendar .react-calendar__tile {
+  background: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  transition: background-color 0.2s ease;
+  color: #ffffff;
+}
+
+/* Hover y selección */
+.custom-calendar .react-calendar__tile:hover {
+  background-color: #404052;
+}
+
+.custom-calendar .react-calendar__tile--active,
+.custom-calendar .react-calendar__tile--hasActive {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Días de semana */
+.custom-calendar .react-calendar__month-view__weekdays {
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  margin-bottom: 5px;
+}
