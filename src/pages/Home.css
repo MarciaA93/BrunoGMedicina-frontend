@@ -133,23 +133,21 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-
-    /* Espacio lateral para que el primer item no quede pegado */
     padding-left: 1rem;
     padding-right: 1rem;
+  }
 
-   
   .popup {
     flex: 0 0 80%;
     max-width: 80%;
     scroll-snap-align: center;
-    margin: 0 10px; /* espacio lateral entre items */
+    margin: 0 10px;
   }
 
-  /* Ocultar la barra de scroll en la mayoría de navegadores */
   .container-gallery::-webkit-scrollbar {
     display: none;
   }
+
   .container-gallery {
     -ms-overflow-style: none;  /* IE 10+ */
     scrollbar-width: none;     /* Firefox */
