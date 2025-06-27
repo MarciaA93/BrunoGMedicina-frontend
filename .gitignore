@@ -1,5 +1,12 @@
+# Ignorar dependencias
 node_modules
 dist
+
+# Ignorar variables de entorno
 .env
-*.log
+.env.local
+.env.production
+
+# Archivos del editor
 .DS_Store
+.vscode
