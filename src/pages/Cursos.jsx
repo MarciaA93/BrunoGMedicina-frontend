@@ -154,7 +154,7 @@ setTimeout(() => {
             </div>
             <div className="card-body d-flex flex-column justify-content-between">
               <div>
-                <h4 className="card-title">Sesiones 1 a 1: Renueva tu SER</h4>
+                <h4 className="card-title">RENUEVA TU SER</h4>
                 <p className="card-text">
                   Consultas personalizadas en línea para ayudarte a encontrar soluciones específicas a tus afecciones. En estas sesiones, también, usaremos técnicas de Medicina China, Yoga y Meditación, que te acompañarán en un viaje de autoconocimiento y crecimiento personal/espiritual.
                 </p>

@@ -5,8 +5,11 @@ import axios from 'axios';
 import 'react-calendar/dist/Calendar.css';
 import './Turnero.css';
 
-const TURNOS_API = 'http://localhost:5000/api/turnos';
-const MP_PUBLIC_KEY = 'TEST-f0b98895-c546-4940-9469-937059dbb244'; // reemplazá con tu public key
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const TURNOS_API = `${API_BASE_URL}/api/turnos`;
+const MP_PUBLIC_KEY = 'TEST-f0b98895-c546-4940-9469-937059dbb244'; 
+const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
 
 function Turnero() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -48,7 +51,7 @@ const handlePagar = async (title, unit_price) => {
 
   try {
     const response = await axios.post(
-      `http://localhost:5000/api/mercadopago/create_preference?date=${fechaISO}&time=${horarioSeleccionado}`,
+       `${MERCADOPAGO_API}?date=${fechaISO}&time=${horarioSeleccionado}`,
       {
         title,
         unit_price
