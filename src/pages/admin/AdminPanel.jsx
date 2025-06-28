@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Modal, Button, Form, Table } from 'react-bootstrap';
 import './AdminPanel.css';
 
-const API_URL = 'http://localhost:5000/api/turnos';
+const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/turnos`;
 
 export default function AdminPanel() {
   const [turnos, setTurnos] = useState([]);
@@ -18,7 +18,7 @@ const [editingPrice, setEditingPrice] = useState({ tipo: '', price: '' });
 
   useEffect(() => {
     fetchTurnos();
-    axios.get('http://localhost:5000/api/precios').then(res => setPrices(res.data));
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`).then(res => setPrices(res.data));
   }, []);
 
   const fetchTurnos = async () => {
@@ -29,18 +29,18 @@ const [editingPrice, setEditingPrice] = useState({ tipo: '', price: '' });
 
 useEffect(() => {
   fetchTurnos();
-  axios.get('http://localhost:5000/api/precios').then(res => setPrices(res.data));
-  axios.get('http://localhost:5000/api/').then(res => setCompras(res.data)); // <- esto
+  axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`).then(res => setPrices(res.data));
+  axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/`).then(res => setCompras(res.data)); // <- esto
 }, []);
 
   
   // Función para actualizar
 const handleUpdatePrice = async () => {
   await axios.put(
-    `http://localhost:5000/api/precios/${editingPrice.tipo}`,
+   `${import.meta.env.VITE_API_BASE_URL}/api/precios/${editingPrice.tipo}`,
     { price: editingPrice.price }
   );
-  const updated = await axios.get('http://localhost:5000/api/precios');
+  const updated = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`);
   setPrices(updated.data);
   setEditingPrice({ tipo: '', price: '' });
 };
@@ -83,7 +83,7 @@ const handleUpdatePrice = async () => {
       date: editData.date,
       timeSlots: editData.timeSlots.map(t => ({ time: t, available: true })),
     };
-    await axios.post(API_URL, payload);
+     await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/turnos`, payload);
     fetchTurnos();
     handleClose();
   };
