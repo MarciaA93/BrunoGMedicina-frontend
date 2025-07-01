@@ -13,7 +13,7 @@ function Home() {
 </div>
 
       <div className="container py-5">
-        <h2 className="text-center mb-4">Bienvenidos</h2>
+        <h2 className="text-center mb-4">BIENVENIDOS</h2>
         <p className="lead text-center">
           Sumergite en una experiencia de relajación y armonía con nuestros masajes terapéuticos.
         </p>
@@ -57,7 +57,7 @@ function Home() {
   </div>
 </div>
       <div className="container py-5">
-  <h2 className="text-center mb-4">Servicios</h2>
+  <h2 className="text-center mb-4">SERVICIOS</h2>
   <div className="row">
     <div className="col-md-4 mb-4">
        <div className="card custom-card h-100 shadow-sm">
@@ -67,7 +67,7 @@ function Home() {
           alt="Masajes terapéuticos"
         />
         <div className="card-body">
-          <h5 className="card-title">Masaje TuiNa</h5>
+          <h5 className="card-title">MASAJE TuiNa</h5>
           <p className="card-text">
             El masaje TuiNa es una rama terapéutica de la Medicina Tradicional China que consta de varias técnicas utilizadas para estimular el flujo de Qi y sangre, liberar bloqueos y contracturas restaurar el equilibrio del cuerpo. Se aplica tanto en dolores  físicos como musculares, como en desequilibrios internos. Es uno de los pilares de la medicina china, junto con la acupuntura, la fitoterapia y el Qi Gong.
           </p>
@@ -101,7 +101,7 @@ function Home() {
           alt="Nuevo servicio"
         />
         <div className="card-body">
-          <h5 className="card-title">Sesiones 1 a 1: Renueva tu SER</h5>
+          <h5 className="card-title">RENUEVA TU SER</h5>
           <p className="card-text">
             Consultas personalizadas en línea para ayudarte a encontrar soluciones específicas a tus afecciones. En estas  sesiones, también, usaremos técnicas de Medicina China, Yoga y Meditación, que  te acompañarán en un viaje de autoconocimiento y crecimiento personal/espiritual. 
 Comienza a SER el cambio.

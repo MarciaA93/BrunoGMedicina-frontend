@@ -74,7 +74,7 @@ const handlePagar = async (title, unit_price) => {
     <div className="container py-5 d-flex gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
       <div style={{ flex: 1, color: 'white' }}>
-        <h2>Tipos de masajes</h2>
+        <h2>TIPOS DE MASAJES</h2>
         <p></p>
         <p><strong>TuiNa tradicional:</strong> Masaje de espalda, escápula, cervicales, cuello y rostro. Descontracturante/Relajante. Duración: 45 min aprox. Valor: $21.000</p>
         <p><strong>TuiNa Premium:</strong> Masaje cuerpo completo. Equilibrio total, mejora estrés y ansiedad. Incluye Ventosas y GuaSha. Duración: 70 min aprox. Valor: $23.000</p>

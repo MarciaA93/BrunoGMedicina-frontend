@@ -119,7 +119,7 @@ setTimeout(() => {
               />
             </div>
             <div className="card-body">
-              <h4 className="card-title">Curso Masaje TuiNa: Técnicas Profesionales de la Medicina China</h4>
+              <h4 className="card-title">CURSO MASAJE TuiNa: TECNICAS PROFESIONALES DE LA MEDICINA CHINA</h4>
               <p className="card-text">
                El masaje TuiNa es una rama terapéutica de la Medicina Tradicional China que consta de varias técnicas utilizadas para estimular el flujo de Qi y sangre, liberar bloqueos y contracturas restaurar el equilibrio del cuerpo. Se aplica tanto en dolores  físicos como musculares, como en desequilibrios internos. Es uno de los pilares de la medicina china, junto con la acupuntura, la fitoterapia y el Qi Gong.
               </p>

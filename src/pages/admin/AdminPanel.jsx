@@ -90,7 +90,7 @@ const handleUpdatePrice = async () => {
 
   return (
     <div className="admin-panel container py-5">
-      <h2 className="text-center mb-4">Panel de Administración</h2>
+      <h2 className="text-center mb-4">PANEL DE ADMINISTRACION</h2>
       <div className="mb-4 text-end">
         <Button variant="success" onClick={() => handleOpen()}>
           + Nuevo Día
@@ -126,7 +126,7 @@ const handleUpdatePrice = async () => {
         </tbody>
       </Table>
 <div className="mt-5">
-  <h4 className="text-light">Compras Realizadas</h4>
+  <h4 className="text-light">COMPRAS REALIZADAS</h4>
   <Table striped bordered hover variant="dark">
     <thead>
       <tr>

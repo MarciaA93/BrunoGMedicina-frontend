@@ -17,7 +17,7 @@ function Login() {
     setError('');
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/admin/login`, formData);
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/admin/login`, formData,  { withCredentials: true });
       // 1) Guardamos en localStorage
       localStorage.setItem('adminUser', res.data.username);
       // 🔔 Notificamos al Navbar (o quien escuche)
