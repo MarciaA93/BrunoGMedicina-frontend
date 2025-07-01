@@ -130,7 +130,7 @@ setTimeout(() => {
                 <span className="badge bg-danger text-light">Promo 50% OFF – Solo para las primeras 5 compras</span>
               </div>
               <button
-                className="btn btn-outline-light"
+                className="btn btn-secondary btn-lg"
                 onClick={() => {
                   setProductoSeleccionado('curso');
                   setShowModal(true);
@@ -162,7 +162,7 @@ setTimeout(() => {
                 <p><strong>Precio:</strong> 67 USD</p>
               </div>
               <button
-                className="btn btn-light mt-3 align-self-start"
+                className="btn btn-secondary btn-lg"
                 onClick={() => {
                   setProductoSeleccionado('sesion');
                   setShowModal(true);
