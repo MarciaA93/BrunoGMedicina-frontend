@@ -1,10 +1,8 @@
-// src/pages/Turnero.jsx
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import 'react-calendar/dist/Calendar.css';
 import './Turnero.css';
-
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
@@ -16,6 +14,8 @@ function Turnero() {
   const [horariosDisponibles, setHorariosDisponibles] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
+  const [showLinkPopup, setShowLinkPopup] = useState(false);
+  const [linkData, setLinkData] = useState({ title: '', url: '' });
 
   const handleDateChange = async (date) => {
     setSelectedDate(date);
@@ -41,92 +41,74 @@ function Turnero() {
     setHorarioSeleccionado(hora);
   };
 
-const handlePagar = async (title, unit_price) => {
-  if (!selectedDate || !horarioSeleccionado) {
-    alert('Por favor, seleccioná una fecha y un horario');
-    return;
-  }
-
-  const fechaISO = selectedDate.toISOString().split('T')[0];
-
-  try {
-    const response = await axios.post(
-       `${MERCADOPAGO_API}?date=${fechaISO}&time=${horarioSeleccionado}`,
-      {
-        title,
-        unit_price
-      },
-       {
-    headers: {
-      'Content-Type': 'application/json'
+  const handlePagar = (title, unit_price) => {
+    if (!selectedDate || !horarioSeleccionado) {
+      alert('Por favor, seleccioná una fecha y un horario');
+      return;
     }
-       }
-    );
-    window.location.href = response.data.init_point;
-  } catch (error) {
-    console.error('Error creando preferencia:', error);
-  }
-};
 
-
+    // Popup provisorio con link personalizado a WhatsApp
+    setLinkData({
+      title,
+      url: 'https://calendly.com/grattonibruno?fbclid=PAZXh0bgNhZW0CMTEAAaeQ7fdpzcnIQR4cSYOHrGJmTarTTpzCOiRc68haKim-zU2S1HcVuJf64XHWjg_aem_kyBNt41K1dX-w1wL68fGLw' + encodeURIComponent(title)
+    });
+    setShowLinkPopup(true);
+  };
 
   return (
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
       <div style={{ flex: 1, color: 'white' }}>
-      
-  <h2 className="mb-3">TURNOS:</h2>
+        <h2 className="mb-3">TURNOS:</h2>
 
-  <h4>NUESTROS MASAJES CORPORALES</h4>
-  <p>Descubra nuestros tratamientos</p>
-  <p>
-    Disfrute o regale una experiencia inolvidable. Nuestros masajes premium son un gesto de amor, belleza y bienestar.
-  </p>
+        <h4>NUESTROS MASAJES CORPORALES</h4>
+        <p>Descubra nuestros tratamientos</p>
+        <p>
+          Disfrute o regale una experiencia inolvidable. Nuestros masajes premium son un gesto de amor, belleza y bienestar.
+        </p>
 
-  <hr />
+        <hr />
 
-  <p><strong>🙌 Masaje Tradicional:</strong> medio cuerpo.<br />
-     Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
-     💸 <strong>Valor:</strong> $25.000<br />
-     🕣 <strong>Duración:</strong> 30 min
-  </p>
+        <p><strong>🙌 Masaje Tradicional:</strong> medio cuerpo.<br />
+           Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
+           💸 <strong>Valor:</strong> $25.000<br />
+           🕣 <strong>Duración:</strong> 30 min
+        </p>
 
-  <p><strong>🙌 Masaje Premium:</strong> cuerpo entero.<br />
-     Descontracturante/terapéutico. Contribuye a reducir el estrés y la ansiedad.<br />
-     Incluye GuaSha y Ventosas.<br />
-     💸 <strong>Valor:</strong> $30.000<br />
-     🕣 <strong>Duración:</strong> 60 min
-  </p>
+        <p><strong>🙌 Masaje Premium:</strong> cuerpo entero.<br />
+           Descontracturante/terapéutico. Contribuye a reducir el estrés y la ansiedad.<br />
+           Incluye GuaSha y Ventosas.<br />
+           💸 <strong>Valor:</strong> $30.000<br />
+           🕣 <strong>Duración:</strong> 60 min
+        </p>
 
-  <hr />
+        <hr />
 
-  <h5>PACK TERAPÉUTICO PREMIUM:</h5>
-  <p>
-    💰 <strong>¡OFERTA!</strong> en un pago:<br />
-    • 2 sesiones a $45.000<br />
-    • 4 sesiones a $100.000<br />
-    Tenés 2 meses para agendar las sesiones.
-  </p>
+        <h5>PACK TERAPÉUTICO PREMIUM:</h5>
+        <p>
+          💰 <strong>¡OFERTA!</strong> en un pago:<br />
+          • 2 sesiones a $45.000<br />
+          • 4 sesiones a $100.000<br />
+          Tenés 2 meses para agendar las sesiones.
+        </p>
 
-  <p>💫 Todos los masajes pueden incluir Drenaje Linfático.<br />
-     ⌛ Los tiempos son estimativos, si se extiende no hay recargo.
-  </p>
+        <p>💫 Todos los masajes pueden incluir Drenaje Linfático.<br />
+           ⌛ Los tiempos son estimativos, si se extiende no hay recargo.
+        </p>
 
-  <hr />
+        <hr />
 
-  <p><strong>📍 Ubicación:</strong><br />
-     Paraná 1132, GC, MDZ.
-  </p>
+        <p><strong>📍 Ubicación:</strong><br />
+           Paraná 1132, GC, MDZ.
+        </p>
 
-  <p><strong>📧 Correo:</strong><br />
-     <a href="mailto:brunomedicinachina@gmail.com" className="text-white">brunomedicinachina@gmail.com</a>
-  </p>
+        <p><strong>📧 Correo:</strong><br />
+           <a href="mailto:brunomedicinachina@gmail.com" className="text-white">brunomedicinachina@gmail.com</a>
+        </p>
 
-  <p><strong>📱 WhatsApp de contacto:</strong><br />
-     <a href="https://wa.me/541165315863" target="_blank" rel="noopener noreferrer" className="text-white">1165315863</a>
-  </p>
-
-       
+        <p><strong>📱 WhatsApp de contacto:</strong><br />
+           <a href="https://wa.me/541165315863" target="_blank" rel="noopener noreferrer" className="text-white">1165315863</a>
+        </p>
       </div>
 
       {/* DERECHA: Calendario y Popup */}
@@ -140,6 +122,7 @@ const handlePagar = async (title, unit_price) => {
             <h5 className="mb-3">
               Horarios disponibles para {selectedDate.toDateString()}
             </h5>
+
             <div className="d-flex flex-wrap gap-2 mb-4">
               {horariosDisponibles.length > 0
                 ? horariosDisponibles.map(h => (
@@ -183,6 +166,23 @@ const handlePagar = async (title, unit_price) => {
 
             <button className="btn btn-dark mt-4 w-100" onClick={() => setShowPopup(false)}>
               Cerrar
+            </button>
+          </div>
+        )}
+
+        {/* POPUP PROVISORIO DE ENLACE */}
+        {showLinkPopup && (
+          <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-light text-dark rounded shadow"
+               style={{ zIndex: 1100, maxWidth: '500px', width: '100%' }}>
+            <h5 className="mb-3">¡Paso final!</h5>
+            <p>
+              Para confirmar el turno de <strong>{linkData.title}</strong>, hacé clic en el siguiente enlace:
+            </p>
+            <a href={linkData.url} target="_blank" rel="noopener noreferrer" className="btn btn-success w-100 mb-3">
+              Ir a confirmar
+            </a>
+            <button className="btn btn-secondary w-100" onClick={() => setShowLinkPopup(false)}>
+              Cancelar
             </button>
           </div>
         )}
