@@ -78,7 +78,7 @@ function Home() {
            El masaje TuiNa es una rama terapéutica  de la Medicina Tradicional China, diseñada para restablecer el equilibrio del cuerpo y la mente. A través de maniobras específicas se estimula la circulación del Qi y la sangre, se liberan bloqueos energéticos, tensiones y contracturas.
 Este masaje es efectivo tanto para dolores físicos como para desequilibrios emocionales y energéticos. 
           </p>
-          <a href="/turnos" className="btn btn-secondary btn-lg">Reservar turno</a>
+          <a href="/turnos" className="btn btn-secondary btn-lg">RESERVAR TURNO</a>
         </div>
       </div>
     </div>
@@ -91,13 +91,14 @@ Este masaje es efectivo tanto para dolores físicos como para desequilibrios emo
           alt="Curso de masaje"
         />
         <div className="card-body">
-          <h5 className="card-title">CURSO ONLINE TUINA: Técnicas Profesionales de la Medicina China</h5>
+          <h5 className="card-title">CURSO ONLINE TUINA: </h5>
+          <h4>Técnicas Profesionales de la Medicina China</h4>
           <p className="card-text">
           Descubrí la eficacia del  TuiNa e incorporá estas técnicas profesionales terapéuticas para aplicar a tus sesiones o comenzar a trabajar como masoterapeuta.
 Vas a aprender cómo estimular el flujo de Qi, aliviar dolencias físicas, tratar desequilibrios internos y acompañar procesos de sanación natural.
 Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta transformadora a su camino profesional o personal.
           </p>
-          <a href="/Cursos" className="btn btn-secondary btn-lg">Ver Más</a>
+          <a href="/Cursos" className="btn btn-secondary btn-lg">VER MAS</a>
         </div>
       </div>
     </div>
@@ -116,7 +117,7 @@ Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta t
 Integro herramientas de la Medicina China, meditación y Yoga terapéutico, para acompañarte en un proceso de autoconocimiento y transformación interior.
 Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el cambio que estás buscando.
           </p>
-          <a href="/Cursos" className="btn btn-secondary btn-lg">Agenda tu sesion</a>
+          <a href="/Cursos" className="btn btn-secondary btn-lg">AGENDA TU SESION</a>
         </div>
       </div>
     </div>

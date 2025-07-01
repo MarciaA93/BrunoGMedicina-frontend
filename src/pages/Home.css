@@ -13,18 +13,39 @@
   display: block;
 }
 .card.custom-card {
-  
-  color: white;
+  background-color: #C9BBEB !important;
+  color: #1a1a1a !important;  /* Texto oscuro para contraste */
   border: none;
+  text-align: center;
+     /* Centra el texto */
 }
-.custom-card {
-  background-color: #f3e6ff; /* lila suave, por ejemplo */
-  color: #333; /* texto oscuro */
-  transition: background-color 0.3s ease;
+.card.custom-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
+.card.custom-card .card-title {
+  font-weight: 700;
+  color: #2d0055; /* un violeta más oscuro, elegante */
+}
+.card.custom-card .card-text {
+  color: #333; /* Gris oscuro o el que elijas */
+}
+
 .custom-card:hover {
   background-color: #e2c6fa; /* tono más fuerte al hacer hover */
 }
+.custom-card .btn-secondary {
+  background-color: #a16be0;
+  border-color: #a16be0;
+  color: white;
+}
+.custom-card .btn-secondary:hover {
+  background-color: #8e5ad1;
+  border-color: #8e5ad1;
+}
+
 .background-video {
   position: absolute;
   top: 0;

@@ -124,7 +124,7 @@ setTimeout(() => {
                El masaje TuiNa es una rama terapéutica de la Medicina Tradicional China que consta de varias técnicas utilizadas para estimular el flujo de Qi y sangre, liberar bloqueos y contracturas restaurar el equilibrio del cuerpo. Se aplica tanto en dolores  físicos como musculares, como en desequilibrios internos. Es uno de los pilares de la medicina china, junto con la acupuntura, la fitoterapia y el Qi Gong.
               </p>
               <div className="mb-3">
-                <p className="fw-bold text-info mb-1">✨ Pack completo: 5 videos + PDF</p>
+                <p className="fw-bold  mb-1">✨ Pack completo: 5 videos + PDF</p>
                 <p className="text-muted mb-1" style={{ textDecoration: 'line-through' }}>Precio regular: 276 USD</p>
                 <p className="text-success fw-bold mb-1" style={{ fontSize: '1.3rem' }}>Ahora: 138 USD</p>
                 <span className="badge bg-danger text-light">Promo 50% OFF – Solo para las primeras 5 compras</span>

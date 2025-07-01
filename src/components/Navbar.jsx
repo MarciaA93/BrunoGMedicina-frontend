@@ -76,7 +76,7 @@ useEffect(() => {
 
             {!isLoggedIn ? (
               <li className="nav-item">
-                <Link className="nav-link" to="/login" onClick={handleNavClick}>Administrador</Link>
+                <Link className="nav-link" to="/login" onClick={handleNavClick}>ADMIN</Link>
               </li>
             ) : (
               <>
