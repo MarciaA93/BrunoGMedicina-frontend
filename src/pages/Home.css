@@ -13,16 +13,31 @@
   display: block;
 }
 .card.custom-card {
-  background-color: rgba(0, 0, 0, 0); /* Fondo negro con transparencia */
+  
   color: white;
   border: none;
 }
-
+.custom-card {
+  background-color: #f3e6ff; /* lila suave, por ejemplo */
+  color: #333; /* texto oscuro */
+  transition: background-color 0.3s ease;
+}
+.custom-card:hover {
+  background-color: #e2c6fa; /* tono más fuerte al hacer hover */
+}
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 
 /* Galería: desktop/grid */
 .container-gallery {
   display: flex;
-   
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;

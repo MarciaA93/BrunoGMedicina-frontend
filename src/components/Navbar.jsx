@@ -41,7 +41,7 @@ useEffect(() => {
   };
 
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+    <nav className="navbar navbar-expand-md navbar-light shadow-sm">
       <div className="container">
         <Link className="navbar-brand fw-bold" to="/" onClick={handleNavClick}>
           BRUNO GRATTONI
@@ -62,16 +62,16 @@ useEffect(() => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav align-items-center">
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={handleNavClick}>Inicio</Link>
+              <Link className="nav-link" to="/" onClick={handleNavClick}>INICIO</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={handleNavClick}>Sobre mí</Link>
+              <Link className="nav-link" to="/about" onClick={handleNavClick}>SOBRE MI</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/turnos" onClick={handleNavClick}>Turnos</Link>
+              <Link className="nav-link" to="/turnos" onClick={handleNavClick}>TURNOS</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cursos" onClick={handleNavClick}>Cursos</Link>
+              <Link className="nav-link" to="/cursos" onClick={handleNavClick}>CURSOS</Link>
             </li>
 
             {!isLoggedIn ? (

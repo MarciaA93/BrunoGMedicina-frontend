@@ -110,7 +110,7 @@ setTimeout(() => {
 
         {/* Curso Digitopuntura */}
         <div className="col-md-6">
-          <div className="card custom-card bg-dark text-light border-0 shadow rounded-4 h-100">
+          <div className="card custom-card text-light border-0 shadow rounded-4 h-100">
             <div className="image-container">
               <img
                 src="/img/012.jpg"

@@ -71,19 +71,62 @@ const handlePagar = async (title, unit_price) => {
 
 
   return (
-    <div className="container py-5 d-flex gap-4" style={{ paddingTop: '4rem' }}>
+    <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
       <div style={{ flex: 1, color: 'white' }}>
-        <h2>TIPOS DE MASAJES</h2>
-        <p></p>
-        <p><strong>TuiNa tradicional:</strong> Masaje de espalda, escápula, cervicales, cuello y rostro. Descontracturante/Relajante. Duración: 45 min aprox. Valor: $21.000</p>
-        <p><strong>TuiNa Premium:</strong> Masaje cuerpo completo. Equilibrio total, mejora estrés y ansiedad. Incluye Ventosas y GuaSha. Duración: 70 min aprox. Valor: $23.000</p>
-        <p><strong>¡OFERTA! Pack terapéutico:</strong></p>
-        <ul>
-          <li>2 sesiones – $40.000</li>
-          <li>4 sesiones – $78.000</li>
-        </ul>
-        <p>💫 Promueven el bienestar energético, emocional y espiritual. Pueden incluir drenaje linfático. Tenés dos meses para agendar las sesiones.</p>
+      
+  <h2 className="mb-3">TURNOS:</h2>
+
+  <h4>NUESTROS MASAJES CORPORALES</h4>
+  <p>Descubra nuestros tratamientos</p>
+  <p>
+    Disfrute o regale una experiencia inolvidable. Nuestros masajes premium son un gesto de amor, belleza y bienestar.
+  </p>
+
+  <hr />
+
+  <p><strong>🙌 Masaje Tradicional:</strong> medio cuerpo.<br />
+     Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
+     💸 <strong>Valor:</strong> $25.000<br />
+     🕣 <strong>Duración:</strong> 30 min
+  </p>
+
+  <p><strong>🙌 Masaje Premium:</strong> cuerpo entero.<br />
+     Descontracturante/terapéutico. Contribuye a reducir el estrés y la ansiedad.<br />
+     Incluye GuaSha y Ventosas.<br />
+     💸 <strong>Valor:</strong> $30.000<br />
+     🕣 <strong>Duración:</strong> 60 min
+  </p>
+
+  <hr />
+
+  <h5>PACK TERAPÉUTICO PREMIUM:</h5>
+  <p>
+    💰 <strong>¡OFERTA!</strong> en un pago:<br />
+    • 2 sesiones a $45.000<br />
+    • 4 sesiones a $100.000<br />
+    Tenés 2 meses para agendar las sesiones.
+  </p>
+
+  <p>💫 Todos los masajes pueden incluir Drenaje Linfático.<br />
+     ⌛ Los tiempos son estimativos, si se extiende no hay recargo.
+  </p>
+
+  <hr />
+
+  <p><strong>📍 Ubicación:</strong><br />
+     Paraná 1132, GC, MDZ.
+  </p>
+
+  <p><strong>📧 Correo:</strong><br />
+     <a href="mailto:brunomedicinachina@gmail.com" className="text-white">brunomedicinachina@gmail.com</a>
+  </p>
+
+  <p><strong>📱 WhatsApp de contacto:</strong><br />
+     <a href="https://wa.me/541165315863" target="_blank" rel="noopener noreferrer" className="text-white">1165315863</a>
+  </p>
+
+       
       </div>
 
       {/* DERECHA: Calendario y Popup */}

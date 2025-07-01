@@ -22,7 +22,7 @@
 /*fondo*/
 
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/img/fondo.jpg');
+   background-image: linear-gradient(to bottom right, #e0bbff, #b388eb);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

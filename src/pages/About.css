@@ -1,0 +1,11 @@
+.collage-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+.collage-img-central {
+  height: 250px;
+  object-fit: cover;
+  object-position: center top; /* o lo que necesites */
+}

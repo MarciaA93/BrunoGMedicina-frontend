@@ -10,7 +10,16 @@
   color: white !important;
 }*/
 .turnero-container {
-  padding-top: 4rem; /* o el espacio que necesites */
+  padding-top: 4rem;
+   display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* o el espacio que necesites */
+}
+.overlay-text {
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
 }
 
 /* Calendario base */
