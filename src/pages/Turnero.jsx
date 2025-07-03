@@ -44,18 +44,30 @@ function Turnero() {
     setHorarioSeleccionado(hora);
   };
 
-  const handlePagar = async (title, unit_price) => {
+  const handlePagar = async (title, unit_price, nombre, email) => {
   if (!selectedDate || !horarioSeleccionado) {
     alert('Por favor, seleccioná una fecha y un horario');
     return;
   }
 
+  if (!nombre || !email) {
+    alert('Por favor, completá tu nombre y email');
+    return;
+  }
+
+  const date = selectedDate.toISOString().split('T')[0];
+  const time = horarioSeleccionado;
+
   try {
-    const res = await axios.post(MERCADOPAGO_API, {
-      title,
-      unit_price,
-      quantity: 1,
-    });
+    const res = await axios.post(
+      `${MERCADOPAGO_API}?date=${date}&time=${time}`,
+      {
+        title,
+        unit_price,
+        nombre,
+        email,
+      }
+    );
 
     const { init_point } = res.data;
 
@@ -66,7 +78,6 @@ function Turnero() {
     alert('Hubo un problema al generar el pago. Por favor, intentá más tarde.');
   }
 };
-
 
   return (
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
@@ -206,7 +217,13 @@ function Turnero() {
              onChange={e => setClienteData({ ...clienteData, email: e.target.value })} />
     </div>
 
-    <button className="btn btn-success w-100 mb-2" onClick={() => handlePagar()}>
+    <button className="btn btn-success w-100 mb-2" onClick={() =>
+    handlePagar(
+      selectedProduct.title,
+      selectedProduct.price,
+      clienteData.nombre,
+      clienteData.email
+    )}>
       Confirmar y Pagar
     </button>
     <button className="btn btn-secondary w-100" onClick={() => setShowFormModal(false)}>
