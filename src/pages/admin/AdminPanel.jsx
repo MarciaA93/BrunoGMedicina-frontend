@@ -14,11 +14,12 @@ export default function AdminPanel() {
   // Estado para precios
 const [prices, setPrices] = useState([]);
 const [editingPrice, setEditingPrice] = useState({ tipo: '', price: '' });
-
+const [turnosConfirmados, setTurnosConfirmados] = useState([]);
 
   useEffect(() => {
     fetchTurnos();
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`).then(res => setPrices(res.data));
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/turnos-confirmados`).then(res => setTurnosConfirmados(res.data));
   }, []);
 
   const fetchTurnos = async () => {
@@ -155,21 +156,31 @@ const handleUpdatePrice = async () => {
 {/* Turnos Reservados */}
 <div className="mt-5">
   <h4 className="text-light">Turnos Reservados</h4>
-  <h3 className="text-light">ON BULDING</h3>
-  <ul className="list-group list-group-flush">
-    {turnos.flatMap(t =>
-      t.timeSlots
-        .filter(s => !s.available)
-        .map(s => (
-          <li
-            key={`${t.date}-${s.time}`}
-            className="list-group-item bg-dark text-light"
-          >
-            {t.date} — {s.time}
-          </li>
-        ))
-    )}
-  </ul>
+ <div className="mt-5">
+  <h4 className="text-light">Turnos Confirmados</h4>
+  <Table striped bordered hover variant="dark">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Tipo de Masaje</th>
+        <th>Método</th>
+        <th>Fecha Compra</th>
+      </tr>
+    </thead>
+    <tbody>
+      {turnosConfirmados.map((t, i) => (
+        <tr key={i}>
+          <td>{t.fecha}</td>
+          <td>{t.hora}</td>
+          <td>{t.tipoMasaje}</td>
+          <td>{t.metodoPago}</td>
+          <td>{new Date(t.fechaCompra).toLocaleString()}</td>
+        </tr>
+      ))}
+    </tbody>
+  </Table>
+</div>
 </div>
 
 <div className="mt-5">

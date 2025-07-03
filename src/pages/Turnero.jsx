@@ -16,6 +16,9 @@ function Turnero() {
   const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
   const [showLinkPopup, setShowLinkPopup] = useState(false);
   const [linkData, setLinkData] = useState({ title: '', url: '' });
+  const [clienteData, setClienteData] = useState({ nombre: '', email: '' });
+  const [selectedProduct, setSelectedProduct] = useState({ title: '', price: 0 });
+  const [showFormModal, setShowFormModal] = useState(false);
 
   const handleDateChange = async (date) => {
     setSelectedDate(date);
@@ -162,12 +165,15 @@ function Turnero() {
                          className="d-flex justify-content-between align-items-center border p-2 rounded">
                       <span>{item.label}</span>
                       <span>${item.price.toLocaleString()}</span>
-                      <button
-                        className="btn btn-success btn-sm"
-                        onClick={() => handlePagar(item.label, item.price)}
-                      >
-                        Pagar
-                      </button>
+                    <button
+  className="btn btn-success btn-sm"
+  onClick={() => {
+    setSelectedProduct({ title: item.label, price: item.price });
+    setShowFormModal(true); // Mostrar modal
+  }}
+>
+  Pagar
+</button>
                     </div>
                   ))}
                 </div>
@@ -181,21 +187,34 @@ function Turnero() {
         )}
 
         {/* POPUP PROVISORIO DE ENLACE */}
-        {showLinkPopup && (
-          <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-light text-dark rounded shadow"
-               style={{ zIndex: 1100, maxWidth: '500px', width: '100%' }}>
-            <h5 className="mb-3">¡Paso final!</h5>
-            <p>
-              Para confirmar el turno de <strong>{linkData.title}</strong>, hacé clic en el siguiente enlace:
-            </p>
-            <a href={linkData.url} target="_blank" rel="noopener noreferrer" className="btn btn-success w-100 mb-3">
-              Ir a confirmar
-            </a>
-            <button className="btn btn-secondary w-100" onClick={() => setShowLinkPopup(false)}>
-              Cancelar
-            </button>
-          </div>
-        )}
+       {showFormModal && (
+  <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-light text-dark rounded shadow"
+       style={{ zIndex: 1100, maxWidth: '500px', width: '100%' }}>
+    <h5 className="mb-3">Datos del Cliente</h5>
+    
+    <div className="mb-2">
+      <label className="form-label">Nombre</label>
+      <input type="text" className="form-control"
+             value={clienteData.nombre}
+             onChange={e => setClienteData({ ...clienteData, nombre: e.target.value })} />
+    </div>
+
+    <div className="mb-4">
+      <label className="form-label">Email</label>
+      <input type="email" className="form-control"
+             value={clienteData.email}
+             onChange={e => setClienteData({ ...clienteData, email: e.target.value })} />
+    </div>
+
+    <button className="btn btn-success w-100 mb-2" onClick={() => handlePagar()}>
+      Confirmar y Pagar
+    </button>
+    <button className="btn btn-secondary w-100" onClick={() => setShowFormModal(false)}>
+      Cancelar
+    </button>
+  </div>
+)}
+
       </div>
     </div>
   );
