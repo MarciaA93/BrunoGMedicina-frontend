@@ -92,7 +92,8 @@ Este masaje es efectivo tanto para dolores físicos como para desequilibrios emo
         />
         <div className="card-body">
           <h5 className="card-title">CURSO ONLINE TUINA: </h5>
-          <h4>Técnicas Profesionales de la Medicina China</h4>
+          <h4>Técnicas Profesionales de</h4>
+          <h4>la Medicina China</h4>
           <p className="card-text">
           Descubrí la eficacia del  TuiNa e incorporá estas técnicas profesionales terapéuticas para aplicar a tus sesiones o comenzar a trabajar como masoterapeuta.
 Vas a aprender cómo estimular el flujo de Qi, aliviar dolencias físicas, tratar desequilibrios internos y acompañar procesos de sanación natural.

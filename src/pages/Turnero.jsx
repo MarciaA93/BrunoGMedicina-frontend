@@ -41,19 +41,29 @@ function Turnero() {
     setHorarioSeleccionado(hora);
   };
 
-  const handlePagar = (title, unit_price) => {
-    if (!selectedDate || !horarioSeleccionado) {
-      alert('Por favor, seleccioná una fecha y un horario');
-      return;
-    }
+  const handlePagar = async (title, unit_price) => {
+  if (!selectedDate || !horarioSeleccionado) {
+    alert('Por favor, seleccioná una fecha y un horario');
+    return;
+  }
 
-    // Popup provisorio con link personalizado a WhatsApp
-    setLinkData({
+  try {
+    const res = await axios.post(MERCADOPAGO_API, {
       title,
-      url: 'https://calendly.com/grattonibruno?fbclid=PAZXh0bgNhZW0CMTEAAaeQ7fdpzcnIQR4cSYOHrGJmTarTTpzCOiRc68haKim-zU2S1HcVuJf64XHWjg_aem_kyBNt41K1dX-w1wL68fGLw' + encodeURIComponent(title)
+      unit_price,
+      quantity: 1,
     });
-    setShowLinkPopup(true);
-  };
+
+    const { init_point } = res.data;
+
+    // Redirigir a Mercado Pago
+    window.location.href = init_point;
+  } catch (err) {
+    console.error('Error al crear preferencia:', err);
+    alert('Hubo un problema al generar el pago. Por favor, intentá más tarde.');
+  }
+};
+
 
   return (
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
