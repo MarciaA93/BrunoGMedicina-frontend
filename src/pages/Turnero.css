@@ -24,7 +24,7 @@
 
 /* Calendario base */
 .custom-calendar {
-  background-color: #141419; /* fondo oscuro */
+  background-color: #C9BBEB; /* fondo oscuro */
   color: #ffffff; /* texto claro */
   border-radius: 12px;
   padding: 10px;
@@ -34,7 +34,7 @@
 
 /* Navegación (flechas y mes) */
 .custom-calendar .react-calendar__navigation {
-  background-color: #2a2a3d;
+  background-color: #C9BBEB;
   border-radius: 8px;
   margin-bottom: 8px;
 }
@@ -51,7 +51,7 @@
   border-radius: 8px;
   padding: 10px 0;
   transition: background-color 0.2s ease;
-  color: #ffffff;
+  color: #0c0c0c;
 }
 
 /* Hover y selección */
@@ -61,13 +61,13 @@
 
 .custom-calendar .react-calendar__tile--active,
 .custom-calendar .react-calendar__tile--hasActive {
-  background-color: #007bff;
+  background-color: #273849;
   color: #fff;
 }
 
 /* Días de semana */
 .custom-calendar .react-calendar__month-view__weekdays {
-  color: #ccc;
+  color: #fdfdfd;
   text-transform: uppercase;
   font-size: 0.75rem;
   margin-bottom: 5px;

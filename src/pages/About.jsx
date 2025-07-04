@@ -19,7 +19,7 @@ const About = () => {
         </div>
 
         {/* COLUMNA DERECHA: Texto */}
-        <div className="col-md-6">
+        <div className="col-md-6 text-dark">
           <h1 className="mb-4">SOBRE MI</h1>
           <p className="lead">
             Hola, mi nombre es Bruno. Soy terapeuta especializado en masoterapia con formación en Medicina China y Masaje TuiNa. Acompaño a personas en su camino de bienestar físico, energético y emocional a través de sesiones personalizadas que integran sabiduría oriental y occidental. Además, brindo cursos de masaje pensados para quienes quieren aprender a contribuir a la mejora de la calidad de vida de otras personas, desde un enfoque consciente y profesional.

@@ -82,7 +82,7 @@ function Turnero() {
   return (
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
-      <div style={{ flex: 1, color: 'white' }}>
+      <div style={{ flex: 1, color: 'black' }}>
         <h2 className="mb-3">TURNOS:</h2>
 
         <h4>NUESTROS MASAJES CORPORALES</h4>
@@ -137,7 +137,7 @@ function Turnero() {
 
       {/* DERECHA: Calendario y Popup */}
       <div style={{ flex: 1 }}>
-        <h2 className="mb-4 text-light">Seleccioná un día</h2>
+        <h2 className="mb-4 text-dark">SELECCIONA UN DIA: </h2>
         <Calendar onChange={handleDateChange} className="custom-calendar" />
 
         {showPopup && (
