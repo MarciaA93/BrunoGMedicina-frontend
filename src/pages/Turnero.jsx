@@ -60,14 +60,14 @@ function Turnero() {
 
   try {
     const res = await axios.post(
-      `${MERCADOPAGO_API}?date=${date}&time=${time}`,
-      {
-        title,
-        unit_price,
-        nombre,
-        email,
-      }
-    );
+  `${BACKEND_URL}/api/mercadopago/create_preference?date=2025-07-03&time=10:00`,
+  {
+    title: 'Masaje relajante',
+    unit_price: 1000,
+    nombre: 'Bruno',
+    email: 'bruno@example.com'
+  }
+);
 
     const { init_point } = res.data;
 
