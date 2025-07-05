@@ -136,7 +136,7 @@ setTimeout(() => {
                   setShowModal(true);
                 }}
               >
-                Comprar
+                COMPRAR
               </button>
             </div>
           </div>
@@ -168,7 +168,7 @@ setTimeout(() => {
                   setShowModal(true);
                 }}
               >
-                Reservar y pagar
+                RESERVAR Y PAGAR
               </button>
             </div>
           </div>
