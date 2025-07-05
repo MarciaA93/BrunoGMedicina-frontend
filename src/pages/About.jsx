@@ -24,6 +24,18 @@ const About = () => {
           <p className="lead">
             Hola, mi nombre es Bruno. Soy terapeuta especializado en masoterapia con formación en Medicina China y Masaje TuiNa. Acompaño a personas en su camino de bienestar físico, energético y emocional a través de sesiones personalizadas que integran sabiduría oriental y occidental. Además, brindo cursos de masaje pensados para quienes quieren aprender a contribuir a la mejora de la calidad de vida de otras personas, desde un enfoque consciente y profesional.
           </p>
+          <hr></hr>
+            <p><strong>📍 Ubicación:</strong><br />
+                     Paraná 1132, GC, MDZ.
+                  </p>
+          
+                  <p><strong>📧 Correo:</strong><br />
+                     <a href="mailto:brunomedicinachina@gmail.com" className="text-white">brunomedicinachina@gmail.com</a>
+                  </p>
+          
+                  <p><strong>📱 WhatsApp de contacto:</strong><br />
+                     <a href="https://wa.me/541165315863" target="_blank" rel="noopener noreferrer" className="text-white">1165315863</a>
+                  </p>
         </div>
 
       </div>

@@ -120,19 +120,8 @@ function Turnero() {
            ⌛ Los tiempos son estimativos, si se extiende no hay recargo.
         </p>
 
-        <hr />
 
-        <p><strong>📍 Ubicación:</strong><br />
-           Paraná 1132, GC, MDZ.
-        </p>
-
-        <p><strong>📧 Correo:</strong><br />
-           <a href="mailto:brunomedicinachina@gmail.com" className="text-white">brunomedicinachina@gmail.com</a>
-        </p>
-
-        <p><strong>📱 WhatsApp de contacto:</strong><br />
-           <a href="https://wa.me/541165315863" target="_blank" rel="noopener noreferrer" className="text-white">1165315863</a>
-        </p>
+      
       </div>
 
       {/* DERECHA: Calendario y Popup */}
