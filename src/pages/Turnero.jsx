@@ -59,15 +59,12 @@ function Turnero() {
   const time = horarioSeleccionado;
 
   try {
-    const res = await axios.post(
-  `${BACKEND_URL}/api/mercadopago/create_preference?date=2025-07-03&time=10:00`,
-  {
-    title: 'Masaje relajante',
-    unit_price: 1000,
-    nombre: 'Bruno',
-    email: 'bruno@example.com'
-  }
-);
+    const res = axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/mercadopago/create_preference`, {
+  title: 'Masaje',
+  unit_price: 1000,
+  nombre: 'Bruno',
+  email: 'bruno@email.com'
+});
 
     const { init_point } = res.data;
 
