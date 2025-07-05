@@ -59,14 +59,14 @@ function Turnero() {
   const time = horarioSeleccionado;
 
   try {
-    const res = axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/mercadopago/create_preference`, {
-  title: 'Masaje',
-  unit_price: 1000,
-  nombre: 'Bruno',
-  email: 'bruno@email.com'
+    const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/mercadopago/create_preference?date=${date}&time=${time}`, {
+  title,
+  unit_price,
+  nombre,
+  email
 });
 
-    const { init_point } = res.data;
+const { init_point } = res.data;
 
     // Redirigir a Mercado Pago
     window.location.href = init_point;
