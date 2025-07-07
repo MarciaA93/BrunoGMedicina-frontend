@@ -13,7 +13,7 @@ export default function AdminPanel() {
   const [newSlot, setNewSlot] = useState('');
   // Estado para precios
 const [prices, setPrices] = useState([]);
-const [editingPrice, setEditingPrice] = useState({ tipo: '', price: '' });
+const [editingPrice, setEditingPrice] = useState({ masajeType: '', price: '' });
 const [turnosConfirmados, setTurnosConfirmados] = useState([]);
 
   useEffect(() => {
