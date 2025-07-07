@@ -38,12 +38,12 @@ useEffect(() => {
   // Función para actualizar
 const handleUpdatePrice = async () => {
   await axios.put(
-   `${import.meta.env.VITE_API_BASE_URL}/api/precios/${editingPrice.tipo}`,
+   `${import.meta.env.VITE_API_BASE_URL}/api/precios/${editingPrice.masajeType}`,
     { price: editingPrice.price }
   );
   const updated = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`);
   setPrices(updated.data);
-  setEditingPrice({ tipo: '', price: '' });
+  setEditingPrice({ masajeType: '', price: '' });
 };
 
   const handleOpen = (turno = null) => {
@@ -204,12 +204,12 @@ const handleUpdatePrice = async () => {
   </Table>
 
    {/* Modal de edición de precio */}
-  <Modal show={!!editingPrice.tipo} onHide={() => setEditingPrice({ tipo:'',price:'' })}>
+  <Modal show={!!editingPrice.tipo} onHide={() => setEditingPrice({ masajeType:'',price:'' })}>
     <Modal.Header closeButton><Modal.Title>Editar Precio</Modal.Title></Modal.Header>
     <Modal.Body>
       <Form.Group>
         <Form.Label>Tipo</Form.Label>
-        <Form.Control type="text" value={editingPrice.tipo} readOnly />
+        <Form.Control type="text" value={editingPrice.masajeType} readOnly />
       </Form.Group>
       <Form.Group className="mt-2">
         <Form.Label>Precio</Form.Label>

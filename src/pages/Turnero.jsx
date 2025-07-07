@@ -19,6 +19,13 @@ function Turnero() {
   const [clienteData, setClienteData] = useState({ nombre: '', email: '' });
   const [selectedProduct, setSelectedProduct] = useState({ title: '', price: 0 });
   const [showFormModal, setShowFormModal] = useState(false);
+  const [precios, setPrecios] = useState([]);
+
+  useEffect(() => {
+  axios.get(`${API_BASE_URL}/api/precios`)
+    .then(res => setPrecios(res.data))
+    .catch(err => console.error('Error al cargar precios:', err));
+}, []);
 
   const handleDateChange = async (date) => {
     setSelectedDate(date);
@@ -152,26 +159,21 @@ const { init_point } = res.data;
               <div className="mt-3">
                 <h6 className="mb-3 text-center">Elegí el tipo de masaje:</h6>
                 <div className="d-grid gap-3">
-                  {[
-                    { label: 'TuiNa Tradicional', price: 21000 },
-                    { label: 'TuiNa Premium',     price: 23000 },
-                    { label: 'Pack 2 sesiones',    price: 40000 },
-                    { label: 'Pack 4 sesiones',    price: 78000 },
-                  ].map(item => (
-                    <div key={item.label}
-                         className="d-flex justify-content-between align-items-center border p-2 rounded">
-                      <span>{item.label}</span>
-                      <span>${item.price.toLocaleString()}</span>
-                    <button
-  className="btn btn-success btn-sm"
-  onClick={() => {
-    setSelectedProduct({ title: item.label, price: item.price });
-    setShowFormModal(true); // Mostrar modal
-  }}
->
-  Pagar
-</button>
-                    </div>
+                  {precios.map(item => (
+                   <div key={item.masajeType}
+     className="d-flex justify-content-between align-items-center border p-2 rounded">
+  <span>{item.masajeType}</span>
+  <span>${item.price.toLocaleString()}</span>
+  <button
+    className="btn btn-success btn-sm"
+    onClick={() => {
+      setSelectedProduct({ title: item.masajeType, price: item.price });
+      setShowFormModal(true);
+    }}
+  >
+    Pagar
+  </button>
+</div>
                   ))}
                 </div>
               </div>
