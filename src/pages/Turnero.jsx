@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
 import 'react-calendar/dist/Calendar.css';
@@ -86,7 +87,7 @@ const { init_point } = res.data;
   return (
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
-      <div style={{ flex: 1, color: 'black' }}>
+      <div style={{ flex: 1, color: 'violet' }}>
         <h2 className="mb-3">TURNOS:</h2>
 
         <h4>NUESTROS MASAJES CORPORALES</h4>
@@ -97,13 +98,13 @@ const { init_point } = res.data;
 
         <hr />
 
-        <p><strong>🙌 Masaje Tradicional:</strong> medio cuerpo.<br />
+        <p><strong>🙌 MASAJE TRADICIONAL:</strong> medio cuerpo.<br />
            Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
            💸 <strong>Valor:</strong> $25.000<br />
            🕣 <strong>Duración:</strong> 30 min
         </p>
 
-        <p><strong>🙌 Masaje Premium:</strong> cuerpo entero.<br />
+        <p><strong>🙌 MASAJE PREMIUN:</strong> cuerpo entero.<br />
            Descontracturante/terapéutico. Contribuye a reducir el estrés y la ansiedad.<br />
            Incluye GuaSha y Ventosas.<br />
            💸 <strong>Valor:</strong> $30.000<br />
