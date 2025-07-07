@@ -139,7 +139,9 @@ setTimeout(() => {
               <div className="mb-3">
                 <p className="fw-bold  mb-1">✨ Pack completo: 5 videos + PDF</p>
                 <p className="text-muted mb-1" style={{ textDecoration: 'line-through' }}>Precio regular: 276 USD</p>
-                <p className="text-success fw-bold mb-1" style={{ fontSize: '1.3rem' }}>Ahora: 138 USD</p>
+                <p className="text-success fw-bold mb-1" style={{ fontSize: '1.3rem' }}>
+  Ahora: {precios.find(p => p.nombreCurso === 'Curso de Masaje TuiNa')?.price || '---'} USD
+</p>
                 <span className="badge bg-danger text-light">Promo 50% OFF – Solo para las primeras 5 compras</span>
               </div>
               <button
@@ -172,7 +174,9 @@ setTimeout(() => {
                   Consultas personalizadas en línea para ayudarte a encontrar soluciones específicas a tus afecciones. En estas sesiones, también, usaremos técnicas de Medicina China, Yoga y Meditación, que te acompañarán en un viaje de autoconocimiento y crecimiento personal/espiritual.
                 </p>
                 <hr />
-                <h5><strong>Precio:</strong> 67 USD</h5>
+                <h5>
+  <strong>Precio:</strong> {precios.find(p => p.nombreCurso === 'Renueva tu SER - Sesión 1 a 1')?.price || '---'} USD
+</h5>
               </div>
               <button
                 className="btn btn-secondary btn-lg"
