@@ -87,7 +87,7 @@ const { init_point } = res.data;
   return (
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
-      <div style={{ flex: 1, color: 'violet' }}>
+      <div style={{ flex: 1, color: 'black' }}>
         <h2 className="mb-3">TURNOS:</h2>
 
         <h4>NUESTROS MASAJES CORPORALES</h4>
