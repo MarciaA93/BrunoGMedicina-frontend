@@ -65,7 +65,7 @@ useEffect(() => {
               <Link className="nav-link" to="/" onClick={handleNavClick}>INICIO</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={handleNavClick}>SOBRE MI</Link>
+              <Link className="nav-link" to="/about" onClick={handleNavClick}>SOBRE MÍ</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/turnos" onClick={handleNavClick}>TURNOS</Link>
@@ -81,7 +81,7 @@ useEffect(() => {
             ) : (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link text-warning" to="/admin" onClick={handleNavClick}>
+                  <Link className="nav-link text-success" to="/admin" onClick={handleNavClick}>
                     Panel de administración
                   </Link>
                 </li>

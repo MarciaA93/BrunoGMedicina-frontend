@@ -21,7 +21,7 @@ function Home() {
 </div>
 
       <div className="container py-5">
-        <h2 className="text-center mb-4">BIENVENIDOS</h2>
+        <h2 className="text-center text-dark mb-4">BIENVENIDOS</h2>
         
       </div>
       
@@ -63,7 +63,7 @@ function Home() {
   </div>
 </div>
       <div className="container py-5">
-  <h2 className="text-center mb-4">SERVICIOS</h2>
+  <h2 className="text-center text-dark mb-4">SERVICIOS</h2>
   <div className="row">
     <div className="col-md-4 mb-4">
        <div className="card custom-card h-100 shadow-sm">
@@ -92,14 +92,14 @@ Este masaje es efectivo tanto para dolores físicos como para desequilibrios emo
         />
         <div className="card-body">
           <h5 className="card-title">CURSO ONLINE TUINA: </h5>
-          <h4>Técnicas Profesionales de</h4>
-          <h4>la Medicina China</h4>
+          <h5>Técnicas Profesionales de</h5>
+          <h5>la Medicina China</h5>
           <p className="card-text">
           Descubrí la eficacia del  TuiNa e incorporá estas técnicas profesionales terapéuticas para aplicar a tus sesiones o comenzar a trabajar como masoterapeuta.
 Vas a aprender cómo estimular el flujo de Qi, aliviar dolencias físicas, tratar desequilibrios internos y acompañar procesos de sanación natural.
 Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta transformadora a su camino profesional o personal.
           </p>
-          <a href="/Cursos" className="btn btn-secondary btn-lg">VER MAS</a>
+          <a href="/Cursos" className="btn btn-secondary btn-lg">VER MÁS</a>
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@ Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta t
 Integro herramientas de la Medicina China, meditación y Yoga terapéutico, para acompañarte en un proceso de autoconocimiento y transformación interior.
 Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el cambio que estás buscando.
           </p>
-          <a href="/Cursos" className="btn btn-secondary btn-lg">AGENDA TU SESION</a>
+          <a href="/Cursos" className="btn btn-secondary btn-lg">AGENDA TU SESIÓN</a>
         </div>
       </div>
     </div>
