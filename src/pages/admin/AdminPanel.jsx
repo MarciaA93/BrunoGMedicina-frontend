@@ -204,7 +204,7 @@ const handleUpdatePrice = async () => {
   </Table>
 
    {/* Modal de edición de precio */}
-  <Modal show={!!editingPrice.tipo} onHide={() => setEditingPrice({ masajeType:'',price:'' })}>
+  <Modal show={!!editingPrice.masajeType} onHide={() => setEditingPrice({ masajeType:'',price:'' })}>
     <Modal.Header closeButton><Modal.Title>Editar Precio</Modal.Title></Modal.Header>
     <Modal.Body>
       <Form.Group>
@@ -221,7 +221,7 @@ const handleUpdatePrice = async () => {
       </Form.Group>
     </Modal.Body>
     <Modal.Footer>
-      <Button variant="secondary" onClick={() => setEditingPrice({ tipo:'',price:'' })}>Cancelar</Button>
+      <Button variant="secondary" onClick={() => setEditingPrice({ masajeType:'',price:'' })}>Cancelar</Button>
       <Button variant="primary" onClick={handleUpdatePrice}>Guardar</Button>
     </Modal.Footer>
   </Modal>
