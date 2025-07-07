@@ -15,11 +15,14 @@ export default function AdminPanel() {
 const [prices, setPrices] = useState([]);
 const [editingPrice, setEditingPrice] = useState({ masajeType: '', price: '' });
 const [turnosConfirmados, setTurnosConfirmados] = useState([]);
+const [cursoPrices, setCursoPrices] = useState([]);
+const [editingCursoPrice, setEditingCursoPrice] = useState({ nombreCurso: '', price: '' });
 
   useEffect(() => {
     fetchTurnos();
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`).then(res => setPrices(res.data));
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/turnos-confirmados`).then(res => setTurnosConfirmados(res.data));
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos`).then(res => setCursoPrices(res.data)); // <--- precios cursos
   }, []);
 
   const fetchTurnos = async () => {
@@ -88,6 +91,16 @@ const handleUpdatePrice = async () => {
     fetchTurnos();
     handleClose();
   };
+
+  const handleUpdateCursoPrice = async () => {
+  await axios.put(
+    `${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos/${editingCursoPrice.nombreCurso}`,
+    { price: editingCursoPrice.price }
+  );
+  const updated = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos`);
+  setCursoPrices(updated.data);
+  setEditingCursoPrice({ nombreCurso: '', price: '' });
+};
 
   return (
     <div className="admin-panel container py-5">
@@ -298,7 +311,54 @@ const handleUpdatePrice = async () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+
+
+      <div className="mt-5">
+  <h4 className="text-light">Precios de Cursos</h4>
+  <Table className="table-dark text-light">
+    <thead>
+      <tr><th>Curso</th><th>Precio Actual</th><th>Acciones</th></tr>
+    </thead>
+    <tbody>
+      {cursoPrices.map(c => (
+        <tr key={c.nombreCurso}>
+          <td>{c.nombreCurso}</td>
+          <td>${c.price}</td>
+          <td>
+            <Button size="sm" onClick={() => setEditingCursoPrice(c)}>Editar</Button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </Table>
+
+  {/* Modal edición precio cursos */}
+  <Modal show={!!editingCursoPrice.nombreCurso} onHide={() => setEditingCursoPrice({ nombreCurso: '', price: '' })}>
+    <Modal.Header closeButton><Modal.Title>Editar Precio Curso</Modal.Title></Modal.Header>
+    <Modal.Body>
+      <Form.Group>
+        <Form.Label>Curso</Form.Label>
+        <Form.Control type="text" value={editingCursoPrice.nombreCurso} readOnly />
+      </Form.Group>
+      <Form.Group className="mt-2">
+        <Form.Label>Precio</Form.Label>
+        <Form.Control
+          type="number"
+          value={editingCursoPrice.price}
+          onChange={e => setEditingCursoPrice(d => ({ ...d, price: e.target.value }))}
+        />
+      </Form.Group>
+    </Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={() => setEditingCursoPrice({ nombreCurso: '', price: '' })}>Cancelar</Button>
+      <Button variant="primary" onClick={handleUpdateCursoPrice}>Guardar</Button>
+    </Modal.Footer>
+  </Modal>
+</div>
+
     </div>
+    
   );
 }
 
