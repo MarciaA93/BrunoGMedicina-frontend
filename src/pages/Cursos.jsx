@@ -10,6 +10,7 @@ const Cursos = () => {
   const [formValid, setFormValid] = useState(false);
   const [productoSeleccionado, setProductoSeleccionado] = useState('');
   const [compraExitosa, setCompraExitosa] = useState(false);
+  const [precios, setPrecios] = useState([]);
 
 
 useEffect(() => {
@@ -25,6 +26,12 @@ useEffect(() => {
   document.body.appendChild(script);
 }, []);
 
+useEffect(() => {
+  fetch(`${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos`)
+    .then(res => res.json())
+    .then(data => setPrecios(data));
+}, []);
+
 
 
 
@@ -38,7 +45,12 @@ useEffect(() => {
   // Renderizar botón de PayPal según producto seleccionado
   useEffect(() => {
     if (formValid && window.paypal && productoSeleccionado) {
-      const precio = productoSeleccionado === 'curso' ? '138.00' : '67.00';
+      const cursoElegido = precios.find(p => 
+  productoSeleccionado === 'curso' 
+    ? p.nombreCurso.includes('TuiNa') 
+    : p.nombreCurso.includes('Renueva'));
+
+const precio = cursoElegido?.price || '0.00';
       const descripcion = productoSeleccionado === 'curso'
         ? 'Curso online: Masaje TuiNa'
         : 'Sesión 1 a 1: Renueva tu SER';
