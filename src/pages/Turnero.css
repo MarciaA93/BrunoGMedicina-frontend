@@ -21,7 +21,13 @@
   font-weight: 600;
   text-align: center;
 }
-
+.custom-popup {
+  background-color: #C9BBEB; /* fondo oscuro */
+  color: #000000; /* texto blanco */
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
 /* Calendario base */
 .custom-calendar {
   background-color: #C9BBEB; /* fondo oscuro */

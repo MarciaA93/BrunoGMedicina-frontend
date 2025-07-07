@@ -185,7 +185,7 @@ const handleUpdatePrice = async () => {
 
 <div className="mt-5">
   <h4>Modificar Precios</h4>
-  <h3 className="text-light">ON BULDING</h3>
+  
   <Table className="table-dark text-light">
     <thead>
       <tr><th>Tipo de Masaje</th><th>Precio Actual</th><th>Acciones</th></tr>

@@ -7,7 +7,13 @@
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
-
+.custom-popup {
+  background-color: #C9BBEB; /* fondo oscuro */
+  color: #000000; /* texto blanco */
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
 .zoom-img {
   transition: transform 0.4s ease;
 }

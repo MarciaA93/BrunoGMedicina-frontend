@@ -135,7 +135,7 @@ const { init_point } = res.data;
         <Calendar onChange={handleDateChange} className="custom-calendar" />
 
         {showPopup && (
-          <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-dark text-light rounded shadow"
+          <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 custom-popup"
                style={{ zIndex: 1050, maxWidth: '500px', width: '100%' }}>
             <h5 className="mb-3">
               Horarios disponibles para {selectedDate.toDateString()}
@@ -188,7 +188,7 @@ const { init_point } = res.data;
 
         {/* POPUP PROVISORIO DE ENLACE */}
        {showFormModal && (
-  <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-light text-dark rounded shadow"
+  <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-light text-dark rounded "
        style={{ zIndex: 1100, maxWidth: '500px', width: '100%' }}>
     <h5 className="mb-3">Datos del Cliente</h5>
     

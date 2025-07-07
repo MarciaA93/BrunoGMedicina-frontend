@@ -159,8 +159,8 @@ setTimeout(() => {
                 <p className="card-text">
                   Consultas personalizadas en línea para ayudarte a encontrar soluciones específicas a tus afecciones. En estas sesiones, también, usaremos técnicas de Medicina China, Yoga y Meditación, que te acompañarán en un viaje de autoconocimiento y crecimiento personal/espiritual.
                 </p>
-                
-                <p><strong>Precio:</strong> 67 USD</p>
+                <hr />
+                <h5><strong>Precio:</strong> 67 USD</h5>
               </div>
               <button
                 className="btn btn-secondary btn-lg"
@@ -178,14 +178,14 @@ setTimeout(() => {
 
       {/* Modal de Compra */}
       <Modal show={showModal} onHide={handleCloseModal} centered backdrop="static">
-        <Modal.Header closeButton className="bg-dark text-light">
+        <Modal.Header closeButton className="custom-popup">
           <Modal.Title>
             {productoSeleccionado === 'curso'
               ? 'Comprar Curso'
               : 'Reservar Sesión 1 a 1'}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="bg-dark text-light">
+        <Modal.Body className="custom-popup">
   {compraExitosa ? (
      <div className="text-center py-4">
     <h2 className="text-success mb-3">✅ ¡Compra Exitosa!</h2>
