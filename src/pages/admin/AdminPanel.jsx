@@ -69,11 +69,15 @@ const handleUpdatePrice = async () => {
   };
 
   const handleAddSlot = () => {
-    if (newSlot && !editData.timeSlots.includes(newSlot)) {
-      setEditData(d => ({ ...d, timeSlots: [...d.timeSlots, newSlot] }));
-      setNewSlot('');
-    }
-  };
+  if (newSlot && !editData.timeSlots.includes(newSlot)) {
+    const nuevosSlots = [...editData.timeSlots, newSlot];
+    // Ordenar horarios
+    nuevosSlots.sort();
+    setEditData(d => ({ ...d, timeSlots: nuevosSlots }));
+    setNewSlot('');
+  }
+};
+
 
   const handleRemoveSlot = slot => {
     setEditData(d => ({
@@ -82,15 +86,23 @@ const handleUpdatePrice = async () => {
     }));
   };
 
-  const handleSave = async () => {
-    const payload = {
-      date: editData.date,
-      timeSlots: editData.timeSlots.map(t => ({ time: t, available: true })),
-    };
-     await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/turnos`, payload);
+ const handleSave = async () => {
+  if (!editData.timeSlots.length) {
+    // Si no hay horarios, eliminar el día si ya existe
+    await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/api/turnos/${editData.date}`);
     fetchTurnos();
     handleClose();
+    return;
+  }
+
+  const payload = {
+    date: editData.date,
+    timeSlots: editData.timeSlots.map(t => ({ time: t, available: true })),
   };
+  await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/turnos`, payload);
+  fetchTurnos();
+  handleClose();
+};
 
   const handleUpdateCursoPrice = async () => {
   await axios.put(
