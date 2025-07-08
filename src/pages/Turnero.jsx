@@ -7,7 +7,6 @@ import './Turnero.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
-const MP_PUBLIC_KEY = 'APP_USR-9c2456cc-e355-490b-b4f9-f79ae9510e1e'; 
 const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
 
 function Turnero() {
@@ -15,8 +14,6 @@ function Turnero() {
   const [horariosDisponibles, setHorariosDisponibles] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
-  const [showLinkPopup, setShowLinkPopup] = useState(false);
-  const [linkData, setLinkData] = useState({ title: '', url: '' });
   const [clienteData, setClienteData] = useState({ nombre: '', email: '' });
   const [selectedProduct, setSelectedProduct] = useState({ title: '', price: 0 });
   const [showFormModal, setShowFormModal] = useState(false);
@@ -65,7 +62,7 @@ function Turnero() {
 
   try {
     const res = await axios.post(
-      `${MERCADOPAGO_API}?date=${selectedDate.toISOString().split('T')[0]}&time=${horarioSeleccionado}&nombre=${clienteData.nombre}&email=${clienteData.email}&producto=${selectedProduct.title}`,
+      `${MERCADOPAGO_API}?date=${selectedDate.toISOString().split('T')[0]}&time=${horarioSeleccionado}`,
       {
         title: selectedProduct.title,
         unit_price: selectedProduct.price,
@@ -82,6 +79,7 @@ function Turnero() {
     alert('Hubo un problema al generar el pago. Por favor, intentá más tarde.');
   }
 };
+
 
 
 
