@@ -60,6 +60,16 @@ function Turnero() {
     return;
   }
 
+   // 👉 LOG DE DATOS ENVIADOS
+  console.log('Enviando a Mercado Pago:', {
+    title: selectedProduct.title,
+    price: selectedProduct.price,
+    nombre: clienteData.nombre,
+    email: clienteData.email,
+    fecha: selectedDate?.toISOString().split('T')[0],
+    hora: horarioSeleccionado
+  }); 
+  
   try {
     const res = await axios.post(
       `${MERCADOPAGO_API}?date=${selectedDate.toISOString().split('T')[0]}&time=${horarioSeleccionado}`,
