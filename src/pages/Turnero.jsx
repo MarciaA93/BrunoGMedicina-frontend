@@ -1,6 +1,4 @@
 
-// ✅ Paso 2: Turnero.jsx limpio con Checkout API (Formulario embebido)
-
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import axios from 'axios';
@@ -9,58 +7,27 @@ import './Turnero.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
-const PAGAR_API = `${API_BASE_URL}/api/mercadopago/pagar`;
-const MP_PUBLIC_KEY = 'APP_USR-9c2456cc-e355-490b-b4f9-f79ae9510e1e'; // <- reemplazá con la real
+const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
 
 function Turnero() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [horariosDisponibles, setHorariosDisponibles] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
   const [horarioSeleccionado, setHorarioSeleccionado] = useState(null);
   const [clienteData, setClienteData] = useState({ nombre: '', email: '' });
   const [selectedProduct, setSelectedProduct] = useState({ title: '', price: 0 });
+  const [showFormModal, setShowFormModal] = useState(false);
   const [precios, setPrecios] = useState([]);
-  const [cardFormLoaded, setCardFormLoaded] = useState(false);
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/precios`)
-      .then(res => setPrecios(res.data))
-      .catch(err => console.error('Error al cargar precios:', err));
-  }, []);
-
-  useEffect(() => {
-    if (window.MercadoPago && !cardFormLoaded) {
-      const mp = new window.MercadoPago(MP_PUBLIC_KEY);
-
-      mp.bricks().create('cardPayment', 'card-form', {
-        initialization: {
-          amount: selectedProduct.price || 0,
-        },
-        callbacks: {
-          onSubmit: async (cardFormData) => {
-            try {
-              const res = await axios.post(PAGAR_API, {
-                ...cardFormData,
-                nombre: clienteData.nombre,
-                email: clienteData.email,
-                producto: selectedProduct.title,
-                date: selectedDate.toISOString().split('T')[0],
-                time: horarioSeleccionado,
-              });
-              alert('✅ Pago exitoso');
-            } catch (error) {
-              console.error(error);
-              alert('❌ Error al procesar el pago');
-            }
-          },
-        }
-      });
-
-      setCardFormLoaded(true);
-    }
-  }, [cardFormLoaded, selectedProduct]);
+  axios.get(`${API_BASE_URL}/api/precios`)
+    .then(res => setPrecios(res.data))
+    .catch(err => console.error('Error al cargar precios:', err));
+}, []);
 
   const handleDateChange = async (date) => {
     setSelectedDate(date);
+    setShowPopup(true);
     setHorarioSeleccionado(null);
 
     const fechaISO = date.toISOString().split('T')[0];
@@ -68,7 +35,9 @@ function Turnero() {
       const res = await axios.get(TURNOS_API);
       const turno = res.data.find(t => t.date === fechaISO);
       setHorariosDisponibles(
-        turno ? turno.timeSlots.filter(s => s.available).map(s => s.time) : []
+        turno
+          ? turno.timeSlots.filter(s => s.available).map(s => s.time)
+          : []
       );
     } catch (err) {
       console.error(err);
@@ -76,40 +45,182 @@ function Turnero() {
     }
   };
 
+  const handleHorarioClick = (hora) => {
+    setHorarioSeleccionado(hora);
+  };
+
+  const handlePagar = async () => {
+  if (!selectedDate || !horarioSeleccionado) {
+    alert('Por favor, seleccioná una fecha y un horario');
+    return;
+  }
+
+  if (!clienteData.nombre || !clienteData.email) {
+    alert('Por favor, completá tu nombre y email');
+    return;
+  }
+
+  try {
+    const res = await axios.post(
+      `${MERCADOPAGO_API}?date=${selectedDate.toISOString().split('T')[0]}&time=${horarioSeleccionado}`,
+      {
+        title: selectedProduct.title,
+        unit_price: selectedProduct.price,
+        quantity: 1,
+        nombre: clienteData.nombre,
+        email: clienteData.email,
+      }
+    );
+
+    const { init_point } = res.data;
+    window.location.href = init_point;
+  } catch (err) {
+    console.error('Error al crear preferencia:', err);
+    alert('Hubo un problema al generar el pago. Por favor, intentá más tarde.');
+  }
+};
+
+
+
+
   return (
-    <div className="container">
-      <h2>Turnos</h2>
-      <Calendar onChange={handleDateChange} />
+    <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
+      {/* IZQUIERDA: Descripción */}
+      <div style={{ flex: 1, color: 'black' }}>
+        <h2 className="mb-3">TURNOS:</h2>
 
-      {selectedDate && (
-        <>
-          <h5>Horarios para {selectedDate.toDateString()}</h5>
-          {horariosDisponibles.map(h => (
-            <button key={h} onClick={() => setHorarioSeleccionado(h)}>{h}</button>
-          ))}
-        </>
-      )}
+        <h4>NUESTROS MASAJES CORPORALES</h4>
+        <p>Descubra nuestros tratamientos</p>
+        <p>
+          Disfrute o regale una experiencia inolvidable. Nuestros masajes premium son un gesto de amor, belleza y bienestar.
+        </p>
 
-      {horarioSeleccionado && (
-        <>
-          <h5>Elegí tipo de masaje</h5>
-          {precios.map(p => (
-            <button key={p.masajeType} onClick={() => setSelectedProduct({ title: p.masajeType, price: p.price })}>
-              {p.masajeType} - ${p.price.toLocaleString()}
+        <hr />
+
+        <p><strong>🙌 MASAJE TRADICIONAL:</strong> medio cuerpo.<br />
+           Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
+           💸 <strong>Valor:</strong> $25.000<br />
+           🕣 <strong>Duración:</strong> 30 min
+        </p>
+
+        <p><strong>🙌 MASAJE PREMIUN:</strong> cuerpo entero.<br />
+           Descontracturante/terapéutico. Contribuye a reducir el estrés y la ansiedad.<br />
+           Incluye GuaSha y Ventosas.<br />
+           💸 <strong>Valor:</strong> $30.000<br />
+           🕣 <strong>Duración:</strong> 60 min
+        </p>
+
+        <hr />
+
+        <h5>PACK TERAPÉUTICO PREMIUM:</h5>
+        <p>
+          💰 <strong>¡OFERTA!</strong> en un pago:<br />
+          • 2 sesiones a $45.000<br />
+          • 4 sesiones a $100.000<br />
+          Tenés 2 meses para agendar las sesiones.
+        </p>
+
+        <p>💫 Todos los masajes pueden incluir Drenaje Linfático.<br />
+           ⌛ Los tiempos son estimativos, si se extiende no hay recargo.
+        </p>
+
+
+      
+      </div>
+
+      {/* DERECHA: Calendario y Popup */}
+      <div style={{ flex: 1 }}>
+        <h2 className="mb-4 text-dark">SELECCIONA UN DIA: </h2>
+        <Calendar onChange={handleDateChange} className="custom-calendar" />
+
+        {showPopup && (
+          <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 custom-popup"
+               style={{ zIndex: 1050, maxWidth: '500px', width: '100%' }}>
+            <h5 className="mb-3">
+              Horarios disponibles para {selectedDate.toDateString()}
+            </h5>
+
+            <div className="d-flex flex-wrap gap-2 mb-4">
+              {horariosDisponibles.length > 0
+                ? horariosDisponibles.map(h => (
+                    <button
+                      key={h}
+                      className={`btn ${horarioSeleccionado === h ? 'btn-secondary' : 'btn-outline-secondary'}`}
+                      onClick={() => handleHorarioClick(h)}
+                    >
+                      {h}
+                    </button>
+                  ))
+                : <span>No hay horarios disponibles</span>
+              }
+            </div>
+
+            {horarioSeleccionado && (
+              <div className="mt-3">
+                <h6 className="mb-3 text-center">Elegí el tipo de masaje:</h6>
+                <div className="d-grid gap-3">
+                  {precios.map(item => (
+                   <div key={item.masajeType}
+     className="d-flex justify-content-between align-items-center border p-2 rounded">
+  <span>{item.masajeType}</span>
+  <span>${item.price.toLocaleString()}</span>
+  <button
+    className="btn btn-success btn-sm"
+    onClick={() => {
+      setSelectedProduct({ title: item.masajeType, price: item.price });
+      setShowFormModal(true);
+    }}
+  >
+    Pagar
+  </button>
+</div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <button className="btn btn-dark mt-4 w-100" onClick={() => setShowPopup(false)}>
+              Cerrar
             </button>
-          ))}
-        </>
-      )}
+          </div>
+        )}
 
-      {selectedProduct.title && (
-        <>
-          <h5>Datos del cliente</h5>
-          <input type="text" placeholder="Nombre" value={clienteData.nombre} onChange={e => setClienteData({ ...clienteData, nombre: e.target.value })} />
-          <input type="email" placeholder="Email" value={clienteData.email} onChange={e => setClienteData({ ...clienteData, email: e.target.value })} />
+        {/* POPUP PROVISORIO DE ENLACE */}
+       {showFormModal && (
+  <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 bg-light text-dark rounded "
+       style={{ zIndex: 1100, maxWidth: '500px', width: '100%' }}>
+    <h5 className="mb-3">Datos del Cliente</h5>
+    
+    <div className="mb-2">
+      <label className="form-label">Nombre</label>
+      <input type="text" className="form-control"
+             value={clienteData.nombre}
+             onChange={e => setClienteData({ ...clienteData, nombre: e.target.value })} />
+    </div>
 
-          <div id="card-form" style={{ marginTop: '20px' }}></div>
-        </>
-      )}
+    <div className="mb-4">
+      <label className="form-label">Email</label>
+      <input type="email" className="form-control"
+             value={clienteData.email}
+             onChange={e => setClienteData({ ...clienteData, email: e.target.value })} />
+    </div>
+
+    <button className="btn btn-success w-100 mb-2" onClick={() =>
+    handlePagar(
+      selectedProduct.title,
+      selectedProduct.price,
+      clienteData.nombre,
+      clienteData.email
+    )}>
+      Confirmar y Pagar
+    </button>
+    <button className="btn btn-secondary w-100" onClick={() => setShowFormModal(false)}>
+      Cancelar
+    </button>
+  </div>
+)}
+
+      </div>
     </div>
   );
 }
