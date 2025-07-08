@@ -7,7 +7,7 @@ import './Turnero.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
-const MP_PUBLIC_KEY = 'TEST-f0b98895-c546-4940-9469-937059dbb244'; 
+const MP_PUBLIC_KEY = 'APP_USR-9c2456cc-e355-490b-b4f9-f79ae9510e1e'; 
 const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
 
 function Turnero() {
