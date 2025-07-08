@@ -60,19 +60,26 @@ function Turnero() {
     return;
   }
 
-   // 👉 LOG DE DATOS ENVIADOS
-  console.log('Enviando a Mercado Pago:', {
+  if (!selectedProduct.title || !selectedProduct.price) {
+    alert('Por favor, seleccioná un tipo de masaje');
+    return;
+  }
+
+  const fechaISO = selectedDate.toISOString().split('T')[0];
+
+  console.log("🧾 Enviando preferencia a Mercado Pago:", {
     title: selectedProduct.title,
-    price: selectedProduct.price,
+    unit_price: selectedProduct.price,
+    quantity: 1,
     nombre: clienteData.nombre,
     email: clienteData.email,
-    fecha: selectedDate?.toISOString().split('T')[0],
-    hora: horarioSeleccionado
-  }); 
-  
+    date: fechaISO,
+    time: horarioSeleccionado
+  });
+
   try {
     const res = await axios.post(
-      `${MERCADOPAGO_API}?date=${selectedDate.toISOString().split('T')[0]}&time=${horarioSeleccionado}`,
+      `${MERCADOPAGO_API}?date=${fechaISO}&time=${horarioSeleccionado}`,
       {
         title: selectedProduct.title,
         unit_price: selectedProduct.price,
@@ -83,12 +90,19 @@ function Turnero() {
     );
 
     const { init_point } = res.data;
+
+    if (!init_point) {
+      throw new Error("No se recibió un init_point válido de Mercado Pago");
+    }
+
+    // Redirigir al pago
     window.location.href = init_point;
   } catch (err) {
-    console.error('Error al crear preferencia:', err);
+    console.error('❌ Error al crear preferencia de Mercado Pago:', err.response?.data || err.message || err);
     alert('Hubo un problema al generar el pago. Por favor, intentá más tarde.');
   }
 };
+
 
 
 
