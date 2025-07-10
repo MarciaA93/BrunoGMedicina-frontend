@@ -79,14 +79,16 @@ function Turnero() {
 
   try {
     const res = await axios.post(
-      `${MERCADOPAGO_API}?date=${fechaISO}&time=${horarioSeleccionado}`,
-      {
-        title: selectedProduct.title,
-        unit_price: selectedProduct.price,
-        quantity: 1,
-        nombre: clienteData.nombre,
-        email: clienteData.email,
-      }
+       MERCADOPAGO_API,
+  {
+    title: selectedProduct.title,
+    unit_price: selectedProduct.price,
+    quantity: 1,
+    nombre: clienteData.nombre,
+    email: clienteData.email,
+    date: fechaISO,
+    time: horarioSeleccionado
+  }
     );
 
     const { init_point } = res.data;
