@@ -21,7 +21,11 @@ const [editingCursoPrice, setEditingCursoPrice] = useState({ nombreCurso: '', pr
   useEffect(() => {
     fetchTurnos();
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`).then(res => setPrices(res.data));
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/turnos-confirmados`).then(res => setTurnosConfirmados(res.data));
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/turnos-confirmados`).then(res => 
+      
+      setTurnosConfirmados(res.data)
+    );
+    
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos`).then(res => setCursoPrices(res.data)); // <--- precios cursos
   }, []);
 
@@ -195,14 +199,21 @@ const handleUpdatePrice = async () => {
     </thead>
     <tbody>
       {turnosConfirmados.map((t, i) => (
-        <tr key={i}>
-          <td>{t.fecha}</td>
-          <td>{t.hora}</td>
-          <td>{t.tipoMasaje}</td>
-          <td>{t.metodoPago}</td>
-          <td>{new Date(t.fechaCompra).toLocaleString()}</td>
-        </tr>
-      ))}
+  <tr key={i}>
+    <td>{t.date}</td>
+    <td>{t.time}</td>
+    <td>{t.tipo}</td>
+    <td>{t.metodo}</td>
+    <td>{new Date(t.fechaCompra).toLocaleString("es-AR", {
+      timeZone: "America/Argentina/Buenos_Aires",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    })}</td>
+  </tr>
+))}
     </tbody>
   </Table>
 </div>
