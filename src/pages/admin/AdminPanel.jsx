@@ -187,35 +187,40 @@ const handleUpdatePrice = async () => {
   <h4 className="text-light">Turnos Reservados</h4>
  <div className="mt-5">
   <h4 className="text-light">Turnos Confirmados</h4>
-  <Table striped bordered hover variant="dark">
-    <thead>
-      <tr>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Tipo de Masaje</th>
-        <th>Método</th>
-        <th>Fecha Compra</th>
+<Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Tipo</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Fecha Compra</th>
+    </tr>
+  </thead>
+  <tbody>
+    {turnosConfirmados.map((t, i) => (
+      <tr key={i}>
+        <td>{t.nombre}</td>
+        <td>{t.email}</td>
+        <td>{t.tipo}</td>
+        <td>{t.date}</td>
+        <td>{t.time}</td>
+        <td>
+          {new Date(t.fechaCompra).toLocaleString("es-AR", {
+            timeZone: "America/Argentina/Buenos_Aires",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+          })}
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {turnosConfirmados.map((t, i) => (
-  <tr key={i}>
-    <td>{t.date}</td>
-    <td>{t.time}</td>
-    <td>{t.tipo}</td>
-    <td>{t.metodo}</td>
-    <td>{new Date(t.fechaCompra).toLocaleString("es-AR", {
-      timeZone: "America/Argentina/Buenos_Aires",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    })}</td>
-  </tr>
-))}
-    </tbody>
-  </Table>
+    ))}
+  </tbody>
+</Table>
+
 </div>
 </div>
 
