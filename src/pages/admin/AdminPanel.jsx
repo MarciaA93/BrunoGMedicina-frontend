@@ -29,10 +29,18 @@ const [editingCursoPrice, setEditingCursoPrice] = useState({ nombreCurso: '', pr
     axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos`).then(res => setCursoPrices(res.data)); // <--- precios cursos
   }, []);
 
-  const fetchTurnos = async () => {
-    const res = await axios.get(API_URL);
-    setTurnos(res.data);
-  };
+ const fetchTurnos = async () => {
+  const res = await axios.get(API_URL);
+
+  // Ordenar por fecha ascendente
+  const turnosOrdenados = res.data.sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
+
+  setTurnos(turnosOrdenados);
+};
+
+
   const [compras, setCompras] = useState([]);
 
 useEffect(() => {
