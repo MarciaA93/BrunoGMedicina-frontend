@@ -7,7 +7,7 @@ import Login from './pages/admin/Login';
 import AdminPanel from './pages/admin/AdminPanel'; 
 import Cursos from './pages/Cursos'; 
 import './App.css';
-
+import Success from './pages/Success';
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
            <Route path="/login" element={<Login />} />
          <Route path="/admin" element={<AdminPanel />} />
          <Route path="/Cursos" element={<Cursos />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </div>
     </Router>
