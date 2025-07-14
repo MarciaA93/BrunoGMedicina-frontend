@@ -68,7 +68,7 @@ const handleUpdatePrice = async () => {
   const handleOpen = (turno = null) => {
     if (turno) {
       setEditData({
-        formatearFecha: turno.date,
+        date: turno.date,
         timeSlots: turno.timeSlots.map(s => s.time),
       });
     } else {
@@ -150,7 +150,7 @@ const handleUpdatePrice = async () => {
         <tbody>
           {turnos.map(t => (
             <tr key={t._id}>
-              <td>{t.date}</td>
+              <td>{t.formatearFecha}</td>
               <td>
                 {t.timeSlots.map(s => (
                   <span key={s.time} className="badge bg-secondary me-1">
