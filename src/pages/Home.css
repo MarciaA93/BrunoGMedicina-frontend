@@ -146,6 +146,49 @@
   font-size: 2rem;
   text-align: center;
 }
+/*testimonios*/
+.testimonios-section {
+  background: transparent;
+  backdrop-filter: blur(3px);
+  color: #eee;
+}
+
+.testimonio {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.estrellas {
+  color: gold;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.nombre {
+  font-weight: bold;
+  color: #fff;
+}
+@keyframes scrollTestimonios {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 
 /* Posicionamientos 3D opcionales 

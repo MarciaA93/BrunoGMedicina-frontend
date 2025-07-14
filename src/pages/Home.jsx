@@ -1,8 +1,44 @@
 import React from 'react';
 import './Home.css';
 import Footer from '../components/Footer';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useState } from 'react';
 
 function Home() {
+  const [expandidoIndex, setExpandidoIndex] = useState(null); // para manejar qué testimonio se expande
+
+  
+
+const testimonios = [
+  {
+    nombre: "Vicenta Diaz",
+    texto: `Recientemente visité este centro de masajes ubicado en Godoy Cruz, Mendoza.
+Quedé completamente satisfecha con la experiencia. El establecimiento cuenta con una ambientación exquisita que crea un ambiente cálido y acogedor, ideal para la relajación desde el momento en que ingresas.
+Durante mi sesión, experimenté el masaje tuina y la aplicación de ventosas. Debo destacar la profesionalidad de Bruno, quien realizó los tratamientos con gran conocimiento y destreza. En todo momento me sentí cómoda.
+La relación precio/calidad es excelente.
+Lo que más aprecié fue la combinación perfecta entre la efectividad del tratamiento y el ambiente propicio para la relajación. Las técnicas aplicadas no solo ayudaron a liberar tensiones musculares sino también a equilibrar la energía del cuerpo según los principios de la medicina china tradicional.
+Sin duda, este centro es muy recomendable ya sea que sufras de dolores específicos o simplemente busques un momento de bienestar.`,
+
+    estrellas: 5,
+    avatar: "/img/reseña1.png"
+  },
+  {
+    nombre: "Maria Belen Pascual",
+    texto: "Muy buena experiencia, todo bien pensado y ordenado para que uno se sienta cómodo. Bruno trabaja muy bien, con mucho conocimiento y también respeto en el cuerpo del otro, los masajes y las ventosas ayudan a soltar tensiones y a sentirse mejor, incluso si vas con algún dolor. Voy cada 15 días y para mí las sesiones de una hora y media son el tiempo justo, siempre siento que mi cuerpo lo agradece porque salgo totalmente relajada y renovada. Lo súper recomiendo!!",
+    estrellas: 4,
+    avatar: "/img/reseña2.png"
+  },
+  {
+    nombre: "Lucia Dibarrat",
+    texto: "Bruno brinda un excelente servicio, combina técnicas de masajes con ventosas que ayudan rápidamente a aflojar la contractura y relajar tensión muscular. El espacio es accesible y acondicionado para mayor comodidad del cuerpo. Buena temperatura y aromas relajantes.",
+    estrellas: 5,
+    avatar: "/img/reseña3.png"
+  }
+];
+
   return (
     <div>
      <div className="image-overlay-container">
@@ -13,6 +49,9 @@ function Home() {
     loop
     playsInline
   >
+
+
+    
     <source src="/video/video1.mp4" type="video/mp4" ></source>
     Tu navegador no soporta el video HTML5.
   </video>
@@ -124,6 +163,49 @@ Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el 
     </div>
   </div>
 </div>
+
+
+
+
+      <div className="testimonios-section py-5">
+        <h2 className="text-center text-light mb-4">TESTIMONIOS</h2>
+        <Swiper
+          modules={[Navigation, Autoplay]}
+          navigation
+          autoplay={{ delay: 4000 }}
+          loop={true}
+          className="mySwiper"
+          spaceBetween={30}
+          slidesPerView={1}
+        >
+          {testimonios.map((t, i) => {
+            const estaExpandido = expandidoIndex === i;
+            const textoCorto = t.texto.length > 250 ? t.texto.slice(0, 250) + '...' : t.texto;
+            return (
+              <SwiperSlide key={i}>
+                <div className="testimonio text-center">
+                  <img src={t.avatar} alt={t.nombre} className="avatar mb-3" />
+                  <p className="texto">{estaExpandido ? t.texto : textoCorto}</p>
+                  {t.texto.length > 250 && (
+                    <button
+                      className="btn btn-link btn-sm text-light"
+                      onClick={() =>
+                        setExpandidoIndex(estaExpandido ? null : i)
+                      }
+                    >
+                      {estaExpandido ? 'Ver menos' : 'Ver más'}
+                    </button>
+                  )}
+                  <div className="estrellas">
+                    {"★".repeat(t.estrellas)}{"☆".repeat(5 - t.estrellas)}
+                  </div>
+                  <p className="nombre">– {t.nombre}</p>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
 
 <Footer />
     </div>
