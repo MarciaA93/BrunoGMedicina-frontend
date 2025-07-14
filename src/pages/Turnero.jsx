@@ -123,31 +123,32 @@ function Turnero() {
 
         <hr />
 
-        <p><strong>🙌 MASAJE TRADICIONAL:</strong> medio cuerpo.<br />
+        <p><strong> MASAJE TRADICIONAL:</strong> medio cuerpo.<br />
            Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
-           💸 <strong>Valor:</strong> $25.000<br />
-           🕣 <strong>Duración:</strong> 30 min
+            <strong>Valor:</strong> $25.000<br />
+            <strong>Duración:</strong> 30 min
         </p>
 
-        <p><strong>🙌 MASAJE PREMIUN:</strong> cuerpo entero.<br />
-           Descontracturante/terapéutico. Contribuye a reducir el estrés y la ansiedad.<br />
-           Incluye GuaSha y Ventosas.<br />
-           💸 <strong>Valor:</strong> $30.000<br />
-           🕣 <strong>Duración:</strong> 60 min
+        <p><strong> MASAJE COMPLETO:</strong> cuerpo entero.<br />
+           Cuerpo entero. Descontracturante/Terapéutico. 
+Contribuye a reducir el estrés y la ansiedad.
+Incluye GuaSha y Ventosas.<br />
+            <strong>Valor:</strong> $30.000<br />
+           <strong>Duración:</strong> 60 min
         </p>
 
         <hr />
 
         <h5>PACK TERAPÉUTICO PREMIUM:</h5>
         <p>
-          💰 <strong>¡OFERTA!</strong> en un pago:<br />
+           <strong>¡OFERTA!</strong> en un pago:<br />
           • 2 sesiones a $45.000<br />
           • 4 sesiones a $100.000<br />
           Tenés 2 meses para agendar las sesiones.
         </p>
 
-        <p>💫 Todos los masajes pueden incluir Drenaje Linfático.<br />
-           ⌛ Los tiempos son estimativos, si se extiende no hay recargo.
+        <p> Todos los masajes pueden incluir Drenaje Linfático.<br />
+            Los tiempos son estimativos, si se extiende no hay recargo.
         </p>
 
 

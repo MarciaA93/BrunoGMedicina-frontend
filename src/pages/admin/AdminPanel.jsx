@@ -239,17 +239,19 @@ const handleUpdatePrice = async () => {
     <thead>
       <tr><th>Tipo de Masaje</th><th>Precio Actual</th><th>Acciones</th></tr>
     </thead>
-    <tbody>
-      {prices.map(p => (
-        <tr key={p.masajeType}>
-          <td>{p.masajeType}</td>
-          <td>${p.price}</td>
-          <td>
-            <Button size="sm" onClick={() => setEditingPrice(p)}>Editar</Button>
-          </td>
-        </tr>
-      ))}
-    </tbody>
+ <tbody>
+  {[...prices]
+    .sort((a, b) => a.masajeType.localeCompare(b.masajeType))
+    .map(p => (
+      <tr key={p.masajeType}>
+        <td>{p.masajeType}</td>
+        <td>${p.price}</td>
+        <td>
+          <Button size="sm" onClick={() => setEditingPrice(p)}>Editar</Button>
+        </td>
+      </tr>
+    ))}
+</tbody>
   </Table>
 
    {/* Modal de edición de precio */}
