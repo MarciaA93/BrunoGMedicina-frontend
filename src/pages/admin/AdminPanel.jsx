@@ -245,7 +245,7 @@ const handleUpdatePrice = async () => {
     </thead>
  <tbody>
   {[...prices]
-    .sort((b, a) => a.masajeType.localeCompare(b.masajeType))
+    .sort((a, b) => b.masajeType.localeCompare(a.masajeType))
     .map(p => (
       <tr key={p.masajeType}>
         <td>{p.masajeType}</td>
