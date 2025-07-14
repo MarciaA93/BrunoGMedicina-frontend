@@ -202,6 +202,15 @@ Incluye GuaSha y Ventosas.<br />
   >
     Pagar
   </button>
+    <button
+    className="btn btn-success btn-sm"
+    onClick={() => {
+      setSelectedProduct({ title: item.masajeType, price: item.price2 });
+      setShowFormModal(true);
+    }}
+  >
+    Pagar
+  </button>
 </div>
                   ))}
                 </div>
