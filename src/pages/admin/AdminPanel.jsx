@@ -6,6 +6,10 @@ import './AdminPanel.css';
 
 const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/turnos`;
 
+const formatearFecha = (fecha) => {
+  return new Date(fecha).toLocaleDateString('es-AR'); // da formato dd/mm/yyyy
+};
+
 export default function AdminPanel() {
   const [turnos, setTurnos] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -64,7 +68,7 @@ const handleUpdatePrice = async () => {
   const handleOpen = (turno = null) => {
     if (turno) {
       setEditData({
-        date: turno.date,
+        formatearFecha: turno.date,
         timeSlots: turno.timeSlots.map(s => s.time),
       });
     } else {
