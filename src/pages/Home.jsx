@@ -183,7 +183,7 @@ Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el 
 
 
       <div className="testimonios-section py-5">
-        <h2 className="text-center text-dark mb-4">TESTIMONIOS</h2>
+        
         <Swiper
           modules={[Navigation, Autoplay]}
           navigation
