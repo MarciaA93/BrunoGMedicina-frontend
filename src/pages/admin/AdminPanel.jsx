@@ -150,7 +150,7 @@ const handleUpdatePrice = async () => {
         <tbody>
           {turnos.map(t => (
             <tr key={t._id}>
-              <td>{t.date}</td>
+               <td>{formatearFecha(t.date)}</td>
               <td>
                 {t.timeSlots.map(s => (
                   <span key={s.time} className="badge bg-secondary me-1">
