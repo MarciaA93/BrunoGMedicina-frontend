@@ -188,31 +188,45 @@ Incluye GuaSha y Ventosas.<br />
               <div className="mt-3">
                 <h6 className="mb-3 text-center">Elegí el tipo de masaje:</h6>
                 <div className="d-grid gap-3">
-                  {precios.map(item => (
-                   <div key={item.masajeType}
-     className="d-flex justify-content-between align-items-center border p-2 rounded">
-  <span>{item.masajeType}</span>
-  <span>${item.price.toLocaleString()}</span>
-  <button
-    className="btn btn-success btn-sm"
-    onClick={() => {
-      setSelectedProduct({ title: item.masajeType, price: item.price });
-      setShowFormModal(true);
-    }}
-  >
-    Pagar
-  </button>
-    <button
-    className="btn btn-success btn-sm"
-    onClick={() => {
-      setSelectedProduct({ title: item.masajeType, price: item.price2 });
-      setShowFormModal(true);
-    }}
-  >
-    Pagar
-  </button>
-</div>
-                  ))}
+                {precios
+                .sort((b, a) => a.masajeType.localeCompare(b.masajeType))
+                .map(item => (
+                  
+  <div key={item.masajeType}
+    className="d-flex justify-content-between align-items-center border p-2 rounded mb-2">
+
+    <div className="d-flex flex-column">
+      <span>{item.masajeType}</span>
+     
+    </div>
+
+    <div className="d-flex gap-2">
+      <button
+        className="btn btn-success btn-sm"
+        onClick={() => {
+          setSelectedProduct({ title: item.masajeType, price: item.price });
+          setShowFormModal(true);
+        }}
+      >
+        Pagar {item.price.toLocaleString()}
+      </button>
+
+      {item.permiteSenia && (
+        <button
+          className="btn btn-outline-primary btn-sm"
+          onClick={() => {
+            setSelectedProduct({ title: item.masajeType, price: item.price2 });
+            setShowFormModal(true);
+          }}
+        >
+          Seña ${item.price2?.toLocaleString()}
+        </button>
+      )}
+    </div>
+  </div>
+))}
+
+
                 </div>
               </div>
             )}
