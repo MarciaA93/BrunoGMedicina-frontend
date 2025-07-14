@@ -28,6 +28,10 @@
   padding: 1.5rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
+
+.text-violet {
+  color: #2d0055;
+}
 /* Calendario base */
 .custom-calendar {
   background-color: #C9BBEB; /* fondo oscuro */

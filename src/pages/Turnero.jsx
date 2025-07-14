@@ -115,7 +115,7 @@ function Turnero() {
       <div style={{ flex: 1, color: 'black' }}>
         <h2 className="mb-3">TURNOS:</h2>
 
-        <h4>NUESTROS MASAJES CORPORALES</h4>
+        <h4 className="text-violet">NUESTROS MASAJES CORPORALES</h4>
         <p>Descubra nuestros tratamientos</p>
         <p>
           Disfrute o regale una experiencia inolvidable. Nuestros masajes premium son un gesto de amor, belleza y bienestar.
@@ -123,14 +123,16 @@ function Turnero() {
 
         <hr />
 
-        <p><strong> MASAJE TRADICIONAL:</strong> medio cuerpo.<br />
+        <p><strong className="text-violet"> MASAJE TRADICIONAL :</strong> <br />
+         MEDIO CUERPO
            Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
             <strong>Valor:</strong> $25.000<br />
             <strong>Duración:</strong> 30 min
         </p>
 
-        <p><strong> MASAJE COMPLETO:</strong> cuerpo entero.<br />
-           Cuerpo entero. Descontracturante/Terapéutico. 
+        <p><strong className="text-violet"> MASAJE COMPLETO :</strong> <br />
+         CUERPO ENTERO
+           Descontracturante/Terapéutico. 
 Contribuye a reducir el estrés y la ansiedad.
 Incluye GuaSha y Ventosas.<br />
             <strong>Valor:</strong> $30.000<br />
@@ -139,7 +141,7 @@ Incluye GuaSha y Ventosas.<br />
 
         <hr />
 
-        <h5>PACK TERAPÉUTICO PREMIUM:</h5>
+        <h5 className="text-violet">PACK TERAPÉUTICO PREMIUM:</h5>
         <p>
            <strong>¡OFERTA!</strong> en un pago:<br />
           • 2 sesiones a $45.000<br />
