@@ -28,7 +28,7 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
   {
     nombre: "Maria Belen Pascual",
     texto: "Muy buena experiencia, todo bien pensado y ordenado para que uno se sienta cómodo. Bruno trabaja muy bien, con mucho conocimiento y también respeto en el cuerpo del otro, los masajes y las ventosas ayudan a soltar tensiones y a sentirse mejor, incluso si vas con algún dolor. Voy cada 15 días y para mí las sesiones de una hora y media son el tiempo justo, siempre siento que mi cuerpo lo agradece porque salgo totalmente relajada y renovada. Lo súper recomiendo!!",
-    estrellas: 4,
+    estrellas: 5,
     avatar: "/img/reseña2.png"
   },
   {
@@ -36,7 +36,22 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
     texto: "Bruno brinda un excelente servicio, combina técnicas de masajes con ventosas que ayudan rápidamente a aflojar la contractura y relajar tensión muscular. El espacio es accesible y acondicionado para mayor comodidad del cuerpo. Buena temperatura y aromas relajantes.",
     estrellas: 5,
     avatar: "/img/reseña3.png"
-  }
+  },
+  {
+    nombre: "Cecilia Rigui",
+    texto: "Excelente experiencia con Bruno, Su enfoque terapéutico y habilidad para personalizar cada sesión me han ayudado significativamente a mejorar mi calidad de sueño. Después de varias sesiones, he notado una gran diferencia en mi descanso y bienestar general. Lo recomiendo ampliamente a aquellos que buscan aliviar problemas de sueño y mejorar su salud en general. Su profesionalismo y dedicación son notables. ¡No dudes en contactarlo si buscas una solución natural y efectiva para tus problemas de sueño entre otros.",
+    estrellas: 5,
+    avatar: "/img/reseña4.png"
+    
+  },
+   {
+    nombre: "Julieta Suarez",
+    texto: "Que decirte que no te han dicho en otros comentarios... me sentí sobre todo escuchada, pocos terapeutas te escuchan antes y después de las terapias yo lo valoro mucho y me sacaste evidentemente un gran pesos de mis hombros. Gracias  ✨️",
+    estrellas: 5,
+    avatar: "/img/reseña5.png"
+    
+  },
+
 ];
 
   return (
@@ -168,7 +183,7 @@ Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el 
 
 
       <div className="testimonios-section py-5">
-        <h2 className="text-center text-light mb-4">TESTIMONIOS</h2>
+        <h2 className="text-center text-dark mb-4">TESTIMONIOS</h2>
         <Swiper
           modules={[Navigation, Autoplay]}
           navigation
@@ -183,7 +198,7 @@ Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el 
             const textoCorto = t.texto.length > 250 ? t.texto.slice(0, 250) + '...' : t.texto;
             return (
               <SwiperSlide key={i}>
-                <div className="testimonio text-center">
+                <div className="testimonio text-center text-dark">
                   <img src={t.avatar} alt={t.nombre} className="avatar mb-3" />
                   <p className="texto">{estaExpandido ? t.texto : textoCorto}</p>
                   {t.texto.length > 250 && (
@@ -199,7 +214,7 @@ Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el 
                   <div className="estrellas">
                     {"★".repeat(t.estrellas)}{"☆".repeat(5 - t.estrellas)}
                   </div>
-                  <p className="nombre">– {t.nombre}</p>
+                  <p className="nombre text-dark">– {t.nombre}</p>
                 </div>
               </SwiperSlide>
             );
