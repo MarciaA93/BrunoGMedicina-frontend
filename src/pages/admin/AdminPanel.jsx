@@ -58,11 +58,15 @@ useEffect(() => {
 const handleUpdatePrice = async () => {
   await axios.put(
    `${import.meta.env.VITE_API_BASE_URL}/api/precios/${editingPrice.masajeType}`,
-    { price: editingPrice.price }
+   {
+      price: editingPrice.price,
+      price2: editingPrice.price2, // ✅ Ahora sí se envía correctamente
+    }
   );
   const updated = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`);
   setPrices(updated.data);
-  setEditingPrice({ masajeType: '', price: '' });
+  setEditingPrice({ masajeType: '', price: '', price2: '' });
+  
 };
 
   const handleOpen = (turno = null) => {
@@ -239,47 +243,78 @@ const handleUpdatePrice = async () => {
 <div className="mt-5">
   <h4>Modificar Precios</h4>
   
-  <Table className="table-dark text-light">
-    <thead>
-      <tr><th>Tipo de Masaje</th><th>Precio Actual</th><th>Acciones</th></tr>
-    </thead>
- <tbody>
-  {[...prices]
-    .sort((a, b) => b.masajeType.localeCompare(a.masajeType))
-    .map(p => (
-      <tr key={p.masajeType}>
-        <td>{p.masajeType}</td>
-        <td>${p.price}</td>
-        <td>
-          <Button size="sm" onClick={() => setEditingPrice(p)}>Editar</Button>
-        </td>
-      </tr>
-    ))}
-</tbody>
-  </Table>
+ <Table className="table-dark text-light">
+  <thead>
+    <tr>
+      <th>Tipo de Masaje</th>
+      <th>Precio Total</th>
+      <th>Precio Seña</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {[...prices]
+      .sort((a, b) => b.masajeType.localeCompare(a.masajeType))
+      .map(p => (
+        <tr key={p.masajeType}>
+          <td>{p.masajeType}</td>
+          <td>${p.price}</td>
+          <td>${p.price2 ?? '—'}</td>
+          <td>
+            <Button size="sm" onClick={() => setEditingPrice(p)}>Editar</Button>
+          </td>
+        </tr>
+      ))}
+  </tbody>
+</Table>
 
    {/* Modal de edición de precio */}
-  <Modal show={!!editingPrice.masajeType} onHide={() => setEditingPrice({ masajeType:'',price:'' })}>
-    <Modal.Header closeButton><Modal.Title>Editar Precio</Modal.Title></Modal.Header>
-    <Modal.Body>
-      <Form.Group>
-        <Form.Label>Tipo</Form.Label>
-        <Form.Control type="text" value={editingPrice.masajeType} readOnly />
-      </Form.Group>
-      <Form.Group className="mt-2">
-        <Form.Label>Precio</Form.Label>
-        <Form.Control
-          type="number"
-          value={editingPrice.price}
-          onChange={e => setEditingPrice(d => ({ ...d, price: e.target.value }))}
-        />
-      </Form.Group>
-    </Modal.Body>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={() => setEditingPrice({ masajeType:'',price:'' })}>Cancelar</Button>
-      <Button variant="primary" onClick={handleUpdatePrice}>Guardar</Button>
-    </Modal.Footer>
-  </Modal>
+  <Modal
+  show={!!editingPrice.masajeType}
+  onHide={() => setEditingPrice({ masajeType: '', price: '', price2: '' })}
+>
+  <Modal.Header closeButton>
+    <Modal.Title>Editar Precio</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <Form.Group>
+      <Form.Label>Tipo</Form.Label>
+      <Form.Control type="text" value={editingPrice.masajeType} readOnly />
+    </Form.Group>
+
+    <Form.Group className="mt-3">
+      <Form.Label>Precio Total</Form.Label>
+      <Form.Control
+        type="number"
+        value={editingPrice.price}
+        onChange={e => setEditingPrice(d => ({ ...d, price: e.target.value }))}
+      />
+    </Form.Group>
+
+    <Form.Group className="mt-3">
+      <Form.Label>Precio Seña</Form.Label>
+      <Form.Control
+        type="number"
+        value={editingPrice.price2 || ''}
+        onChange={e => setEditingPrice(d => ({ ...d, price2: e.target.value }))}
+      />
+    </Form.Group>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <Button
+      variant="secondary"
+      onClick={() => setEditingPrice({ masajeType: '', price: '', price2: '' })}
+    >
+      Cancelar
+    </Button>
+    <Button variant="primary" onClick={handleUpdatePrice}>
+      Guardar
+    </Button>
+  </Modal.Footer>
+</Modal>
+
 </div>
 
 
