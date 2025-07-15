@@ -59,9 +59,9 @@ const handleUpdatePrice = async () => {
   await axios.put(
    `${import.meta.env.VITE_API_BASE_URL}/api/precios/${editingPrice.masajeType}`,
    {
-      price: editingPrice.price,
-      price2: editingPrice.price2, // ✅ Ahora sí se envía correctamente
-    }
+        price: Number(editingPrice.price),
+        price2: Number(editingPrice.price2),
+      }
   );
   const updated = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/precios`);
   setPrices(updated.data);
