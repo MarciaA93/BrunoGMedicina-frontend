@@ -7,7 +7,9 @@ import './AdminPanel.css';
 const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/turnos`;
 
 const formatearFecha = (fecha) => {
-  return new Date(fecha).toLocaleDateString('es-AR'); // da formato dd/mm/yyyy
+  if (!fecha || typeof fecha !== 'string') return '';
+  const [anio, mes, dia] = fecha.split('-');
+  return `${dia}/${mes}/${anio}`;
 };
 
 export default function AdminPanel() {
