@@ -145,7 +145,7 @@ Incluye GuaSha y Ventosas.<br />
         <p>
            <strong>¡OFERTA!</strong> en un pago:<br />
           • 2 sesiones a $45.000<br />
-          • 4 sesiones a $100.000<br />
+          • 4 sesiones a $80.000<br />
           Tenés 2 meses para agendar las sesiones.
         </p>
 
