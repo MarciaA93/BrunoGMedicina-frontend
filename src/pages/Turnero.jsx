@@ -147,6 +147,7 @@ Incluye GuaSha y Ventosas.<br />
           • 2 sesiones a $45.000<br />
           • 4 sesiones a $80.000<br />
           Tenés 2 meses para agendar las sesiones.
+          Comprando el pack, al agendar la primera sesion, las restantes se coordinan con el masajista.
         </p>
 
         <p> Todos los masajes pueden incluir Drenaje Linfático.<br />
