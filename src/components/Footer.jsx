@@ -24,7 +24,7 @@ const Footer = () => {
             <FaInstagram size={24} />
           </a>
           <a
-            href="https://wa.me/5491165315863"
+            href="https://wa.me/5492617242768"
             target="_blank"
             rel="noopener noreferrer"
             className="text-light mx-3"

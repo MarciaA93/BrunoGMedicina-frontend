@@ -34,7 +34,7 @@ const About = () => {
           </p>
 
           <p><strong>📱 WhatsApp de contacto:</strong><br />
-            <a href="https://wa.me/541165315863" target="_blank" rel="noopener noreferrer" className="text-dark">1165315863</a>
+            <a href="https://wa.me/5492617242768" target="_blank" rel="noopener noreferrer" className="text-dark">+5492617242768</a>
           </p>
 
           <p><strong>📍 Ubicación:</strong><br />
