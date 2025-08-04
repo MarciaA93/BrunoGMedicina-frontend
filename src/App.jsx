@@ -8,12 +8,14 @@ import AdminPanel from './pages/admin/AdminPanel';
 import Cursos from './pages/Cursos'; 
 import './App.css';
 import Success from './pages/Success';
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   return (
     <Router>
       <div className="app-wrapper">
         <Navbar />
+        <ScrollToTopButton />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/turnos" element={<Turnero />} />
@@ -22,6 +24,7 @@ function App() {
          <Route path="/admin" element={<AdminPanel />} />
          <Route path="/Cursos" element={<Cursos />} />
           <Route path="/success" element={<Success />} />
+          
         </Routes>
       </div>
     </Router>
