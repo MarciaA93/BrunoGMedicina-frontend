@@ -5,7 +5,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
-const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
+const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_course_preference`; // <-- Apunta a la nueva ruta
 
 
 const Cursos = () => {
@@ -47,8 +47,7 @@ useEffect(() => {
     setFormValid(nombre.trim() !== '' && email.includes('@'));
   }, [formData]);
 
-  // Renderizar botón de PayPal según producto seleccionado
- // Renderizar botón de PayPal según producto seleccionado
+ 
 useEffect(() => {
   if (formValid && window.paypal && productoSeleccionado) {
     const cursoElegido = precios.find(p => 
@@ -124,21 +123,20 @@ useEffect(() => {
       btn.className = 'btn btn-primary btn-lg w-100';
       btn.textContent = 'Pagar con Mercado Pago 🇦🇷';
       btn.onclick = async () => {
-        try {
-          const res = await fetch(MERCADOPAGO_API, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              title: descripcion,
-              unit_price: precio,
-              quantity: 1,
-              nombre: formData.nombre,
-              email: formData.email,
-              date: new Date().toISOString().split('T')[0],
-              time: new Date().toLocaleTimeString(),
-            }),
-          });
-
+  try {
+    const res = await fetch(MERCADOPAGO_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      
+      body: JSON.stringify({
+        title: descripcion,
+        unit_price: precio,
+        quantity: 1,
+        nombre: formData.nombre,
+        email: formData.email,
+       
+      }),
+    });
           const data = await res.json();
           if (!data.init_point) throw new Error('No se recibió init_point');
 
@@ -211,14 +209,7 @@ const handlePagar = async () => {
 
 
 
- if (bloqueado) {
-    return (
-      <div className="container my-5 d-flex flex-column align-items-center justify-content-center" style={{ minHeight: "70vh" }}>
-        <h1 className="mb-3">🚧 Sección en construcción 🚧</h1>
-        <p className="lead text-center">Estamos preparando nuestros cursos para vos. Muy pronto estarán disponibles ✨</p>
-      </div>
-    );
-  }
+ 
   
   return (
     <div className="container my-5">
