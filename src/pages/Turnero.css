@@ -29,6 +29,13 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
+.dia-disponible {
+  background-color: #c8e6c9 !important; /* Verde clarito */
+  border-radius: 50%;
+  font-weight: bold;
+  color: #2e7d32 !important;
+}
+
 .text-violet {
   color: #2d0055;
 }

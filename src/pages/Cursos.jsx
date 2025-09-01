@@ -150,7 +150,7 @@ useEffect(() => {
       container.appendChild(btn);
     }
   }
-}, [formValid, productoSeleccionado, formData, precios]);
+}, [formValid, productoSeleccionado, formData.email, formData.nombre, precios]);
 
 
 
@@ -165,46 +165,7 @@ useEffect(() => {
   setCompraExitosa(false);
 };
 
-const handlePagar = async () => {
- 
 
-  const fechaISO = selectedDate.toISOString().split('T')[0];
-
-  console.log("🧾 Enviando preferencia a Mercado Pago:", {
-    title: selectedProduct.title,
-    unit_price: selectedProduct.price,
-    quantity: 1,
-    nombre: clienteData.nombre,
-    email: clienteData.email,
-  
-  });
-
-  try {
-    const res = await axios.post(
-       MERCADOPAGO_API,
-  {
-    title: selectedProduct.title,
-    unit_price: selectedProduct.price,
-    quantity: 1,
-    nombre: clienteData.nombre,
-    email: clienteData.email,
-   
-  }
-    );
-
-    const { init_point } = res.data;
-
-    if (!init_point) {
-      throw new Error("No se recibió un init_point válido de Mercado Pago");
-    }
-
-    // Redirigir al pago
-    window.location.href = init_point;
-  } catch (err) {
-    console.error('❌ Error al crear preferencia de Mercado Pago:', err.response?.data || err.message || err);
-    alert('Hubo un problema al generar el pago. Por favor, intentá más tarde.');
-  }
-};
 
 
 
@@ -274,7 +235,7 @@ const handlePagar = async () => {
   {/* Mercado Pago */}
   <div className="p-3 border rounded text-center" style={{ width: "250px" }}>
     <p className="text-muted mb-1" style={{ textDecoration: "line-through" }}>
-      Precio regular:
+      Precio regular: 276000
     </p>
    <p
       className="text-success fw-bold mb-1"
@@ -345,7 +306,7 @@ const handlePagar = async () => {
       style={{ fontSize: "1.3rem" }}
     >
       Precio:{" "}$
-      {precios.find(p => p.nombreCurso === "Sesión 1 a 1: Renueva tu SER")?.price_usd ||
+      {precios.find(p => p.nombreCurso === 'Renueva tu SER - Sesión 1 a 1')?.price_usd ||
         "---"}{" "}
       USD
     </p>
@@ -375,7 +336,7 @@ const handlePagar = async () => {
       Precio:{" "}
       
        $
-      {precios.find(p => p.nombreCurso === "Sesión 1 a 1: Renueva tu SER")?.price_ars ||
+      {precios.find(p => p.nombreCurso === 'Renueva tu SER - Sesión 1 a 1')?.price_ars ||
         "---"}{" "}
       
     </p>

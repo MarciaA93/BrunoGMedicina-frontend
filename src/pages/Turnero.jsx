@@ -8,6 +8,7 @@ import './Turnero.css';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
 const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
+const TURNOS_DISPONIBLES_API = `${API_BASE_URL}/api/turnos/disponibles`;
 
 function Turnero() {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -18,12 +19,20 @@ function Turnero() {
   const [selectedProduct, setSelectedProduct] = useState({ title: '', price: 0 });
   const [showFormModal, setShowFormModal] = useState(false);
   const [precios, setPrecios] = useState([]);
+  const [fechasDisponibles, setFechasDisponibles] = useState([]); // 🔹 NUEVO
 
   useEffect(() => {
   axios.get(`${API_BASE_URL}/api/precios`)
     .then(res => setPrecios(res.data))
     .catch(err => console.error('Error al cargar precios:', err));
 }, []);
+
+useEffect(() => {
+    // Traer las fechas con disponibilidad
+    axios.get(TURNOS_DISPONIBLES_API)
+      .then(res => setFechasDisponibles(res.data.fechasDisponibles || []))
+      .catch(err => console.error("Error cargando fechas disponibles:", err));
+  }, []);
 
   const handleDateChange = async (date) => {
     setSelectedDate(date);
@@ -43,6 +52,15 @@ function Turnero() {
       console.error(err);
       setHorariosDisponibles([]);
     }
+  };
+
+// 🔹 Para marcar los días disponibles
+  const marcarDiasDisponibles = ({ date }) => {
+    const fechaISO = date.toISOString().split('T')[0];
+    if (fechasDisponibles.includes(fechaISO)) {
+      return 'dia-disponible'; // clase CSS
+    }
+    return null;
   };
 
   const handleHorarioClick = (hora) => {
@@ -161,7 +179,10 @@ Incluye GuaSha y Ventosas.<br />
       {/* DERECHA: Calendario y Popup */}
       <div style={{ flex: 1 }}>
         <h2 className="mb-4 text-dark">SELECCIONA UN DIA: </h2>
-        <Calendar onChange={handleDateChange} className="custom-calendar" />
+        <Calendar onChange={handleDateChange} tileClassName={({ date }) => {
+    const fechaISO = date.toISOString().split('T')[0];
+    return fechasDisponibles.includes(fechaISO) ? 'dia-disponible' : null;
+  }} className="custom-calendar" />
 
         {showPopup && (
           <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 custom-popup"
