@@ -19,7 +19,7 @@ function Turnero() {
   const [showFormModal, setShowFormModal] = useState(false);
   const [precios, setPrecios] = useState([]);
   const [fechasDisponibles, setFechasDisponibles] = useState([]);
-  const [bloqueado] = useState(true); // 👈 cambiar a false para habilitar la página
+  const [bloqueado] = useState(false); // 👈 cambiar a false para habilitar la página
 
   useEffect(() => {
     axios.get(`${API_BASE_URL}/api/precios`)
