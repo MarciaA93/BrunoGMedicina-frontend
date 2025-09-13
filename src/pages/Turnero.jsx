@@ -10,6 +10,24 @@ const TURNOS_API = `${API_BASE_URL}/api/turnos`;
 const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
 
 function Turnero() {
+  // 🔧 Cambiá esto a true para mostrar el cartel y bloquear el componente
+  const [enMantenimiento] = useState(false);
+
+  if (enMantenimiento) {
+    return (
+      <div className="container py-5 text-center" style={{ minHeight: "60vh" }}>
+        <div className="p-4 border rounded-3 shadow-sm bg-light">
+          <h2 className="text-dark mb-3">⚒️ Estamos trabajando en el turnero</h2>
+          <p className="text-muted">
+            En breve volverá a estar disponible. Gracias por tu paciencia 💜
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [horariosDisponibles, setHorariosDisponibles] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -110,6 +128,7 @@ function Turnero() {
 
 
   return (
+    
     <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
       {/* IZQUIERDA: Descripción */}
       <div style={{ flex: 1, color: 'black' }}>
