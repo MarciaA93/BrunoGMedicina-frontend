@@ -11,7 +11,7 @@ const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
 
 function Turnero() {
   // 🔧 Cambiá esto a true para mostrar el cartel y bloquear el componente
-  const [enMantenimiento] = useState(true);
+  const [enMantenimiento] = useState(false);
 
   if (enMantenimiento) {
     return (
