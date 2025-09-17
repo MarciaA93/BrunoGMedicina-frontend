@@ -8,6 +8,7 @@ import './Turnero.css';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const TURNOS_API = `${API_BASE_URL}/api/turnos`;
 const MERCADOPAGO_API = `${API_BASE_URL}/api/mercadopago/create_preference`;
+const TURNOS_DISPONIBLES_API = `${API_BASE_URL}/api/turnos/disponibles`;
 
 function Turnero() {
   // 🔧 Cambiá esto a true para mostrar el cartel y bloquear el componente
@@ -36,6 +37,7 @@ function Turnero() {
   const [selectedProduct, setSelectedProduct] = useState({ title: '', price: 0 });
   const [showFormModal, setShowFormModal] = useState(false);
   const [precios, setPrecios] = useState([]);
+   const [fechasDisponibles, setFechasDisponibles] = useState([]);
 
   useEffect(() => {
   axios.get(`${API_BASE_URL}/api/precios`)
@@ -180,7 +182,17 @@ Incluye GuaSha y Ventosas.<br />
       {/* DERECHA: Calendario y Popup */}
       <div style={{ flex: 1 }}>
         <h2 className="mb-4 text-dark">SELECCIONA UN DIA: </h2>
-        <Calendar onChange={handleDateChange} className="custom-calendar" />
+        <Calendar onChange={handleDateChange} className="custom-calendar"
+         tileClassName={({ date, view }) => {
+            if (view === 'month') {
+              const fechaISO = date.toISOString().split('T')[0];
+              if (fechasDisponibles.includes(fechaISO)) {
+                return 'dia-disponible'; // Aplicamos nuestra clase CSS
+              }
+            }
+            return null;
+          }}
+        />
 
         {showPopup && (
           <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 custom-popup"
