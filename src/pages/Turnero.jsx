@@ -131,6 +131,12 @@ function Turnero() {
               <strong>Valor:</strong> $30.000<br />
               <strong>Duración:</strong> 60 min
             </p>
+            <p>
+              <strong className="text-violet"> MASAJE EXCLUSIVO :</strong> <br />
+              CUERPO ENTERO Combina todas las técnicas de la medicina china más sesión de ejercicios específicos segun requiera cada caso.<br />
+              <strong>Valor:</strong> $45.000<br />
+              <strong>Duración:</strong> 90 min
+            </p>
             <hr />
             <h5 className="text-violet">PACK TERAPÉUTICO PREMIUM:</h5>
             <p>
