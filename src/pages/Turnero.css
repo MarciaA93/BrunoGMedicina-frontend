@@ -6,10 +6,10 @@
 }
   /* --- NUEVO: Estilo para los días con turnos disponibles --- */
 .dia-disponible {
-  background-color: #d4edda !important; /* Un verde clarito */
+  background-color: #d050d0 !important; /* Un verde clarito */
   border-radius: 50%;
   font-weight: bold;
-  color: #155724 !important;
+  color: #571554 !important;
 }
 
 .react-calendar__tile--active {
