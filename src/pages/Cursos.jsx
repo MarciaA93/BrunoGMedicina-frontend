@@ -23,10 +23,8 @@ const Cursos = () => {
   const PRECIO_ANTERIOR_CURSO = '70000'; 
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/api/precios-cursos`)
-      .then(res => res.json())
-      .then(data => setPrecios(data));
-  }, []);
+  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 45000 }]); // precio actual
+}, []);
 
   // Validar campos
   useEffect(() => {

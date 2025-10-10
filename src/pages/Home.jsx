@@ -145,7 +145,7 @@ Este masaje es efectivo tanto para dolores físicos como para desequilibrios emo
           alt="Curso de masaje"
         />
         <div className="card-body">
-          <h5 className="card-title">CURSO ONLINE TUINA: </h5>
+          <h5 className="card-title">CAPACITACION ONLINE TUINA: </h5>
           <h5>Técnicas Profesionales de</h5>
           <h5>la Medicina China</h5>
           <p className="card-text">

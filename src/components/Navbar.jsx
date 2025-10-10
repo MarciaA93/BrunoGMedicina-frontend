@@ -71,7 +71,7 @@ useEffect(() => {
               <Link className="nav-link" to="/turnos" onClick={handleNavClick}>TURNOS</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cursos" onClick={handleNavClick}>CURSOS</Link>
+              <Link className="nav-link" to="/cursos" onClick={handleNavClick}>CAPACITACION</Link>
             </li>
 
             {!isLoggedIn ? (
