@@ -20,6 +20,7 @@ function Turnero() {
   const [precios, setPrecios] = useState([]);
   const [fechasDisponibles, setFechasDisponibles] = useState([]);
   const [bloqueado] = useState(false); // Cambiar a false para habilitar
+  const [loadingPago, setLoadingPago] = useState(false); // NUEVO estado
 
   // Un solo useEffect para cargar los datos iniciales
   useEffect(() => {
@@ -45,8 +46,6 @@ function Turnero() {
 
     const fechaISO = date.toISOString().split('T')[0];
     try {
-      // Optimización: Pedimos solo los horarios para la fecha seleccionada.
-      // Asegúrate de que tu backend tenga un endpoint como GET /api/turnos/:fecha
       const res = await axios.get(`${TURNOS_API}/${fechaISO}`);
       const turno = res.data;
       setHorariosDisponibles(
@@ -63,16 +62,22 @@ function Turnero() {
   };
 
   const handlePagar = async () => {
+    if (loadingPago) return; // evita doble click
+    setLoadingPago(true);
+
     if (!selectedDate || !horarioSeleccionado) {
       alert('Por favor, seleccioná una fecha y un horario');
+      setLoadingPago(false);
       return;
     }
     if (!clienteData.nombre || !clienteData.email) {
       alert('Por favor, completá tu nombre y email');
+      setLoadingPago(false);
       return;
     }
     if (!selectedProduct.title || !selectedProduct.price) {
       alert('Por favor, seleccioná un tipo de masaje');
+      setLoadingPago(false);
       return;
     }
 
@@ -96,6 +101,8 @@ function Turnero() {
     } catch (err) {
       console.error('❌ Error en Mercado Pago:', err.response?.data || err.message || err);
       alert('Hubo un problema al generar el pago.');
+    } finally {
+      setLoadingPago(false);
     }
   };
 
@@ -109,7 +116,7 @@ function Turnero() {
         </div>
       ) : (
         <>
-          {/* IZQUIERDA: Descripción (COMPLETA) */}
+          {/* IZQUIERDA */}
           <div style={{ flex: 1, color: 'black' }}>
             <h2 className="mb-3">TURNOS:</h2>
             <h4 className="text-violet">NUESTROS MASAJES CORPORALES</h4>
@@ -152,7 +159,7 @@ function Turnero() {
             </p>
           </div>
 
-          {/* DERECHA: Calendario y Popup (COMPLETO) */}
+          {/* DERECHA */}
           <div style={{ flex: 1 }}>
             <h2 className="mb-4 text-dark">SELECCIONA UN DIA: </h2>
             <Calendar
@@ -246,8 +253,12 @@ function Turnero() {
                     value={clienteData.email}
                     onChange={e => setClienteData({ ...clienteData, email: e.target.value })} />
                 </div>
-                <button className="btn btn-success w-100 mb-2" onClick={handlePagar}>
-                  Confirmar y Pagar
+                <button
+                  className="btn btn-success w-100 mb-2"
+                  onClick={handlePagar}
+                  disabled={loadingPago}
+                >
+                  {loadingPago ? "Procesando..." : "Confirmar y Pagar"}
                 </button>
                 <button className="btn btn-secondary w-100" onClick={() => setShowFormModal(false)}>
                   Cancelar

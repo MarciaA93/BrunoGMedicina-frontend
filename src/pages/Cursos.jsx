@@ -23,7 +23,7 @@ const Cursos = () => {
   const PRECIO_ANTERIOR_CURSO = '70000'; 
 
   useEffect(() => {
-  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 45000 }]); // precio actual
+  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 1 }]); // precio actual
 }, []);
 
   // Validar campos
@@ -60,10 +60,11 @@ const Cursos = () => {
                 email: formData.email,
               }),
             });
-            const data = await res.json();
-            if (!data.init_point) throw new Error('No se recibió init_point');
+           const data = await res.json();
+          console.log("👉 Respuesta de MP:", data);
+          if (!data.init_point) throw new Error('No se recibió init_point');
 
-            window.location.href = data.init_point;
+          window.location.href = data.init_point;
           } catch (err) {
             console.error('❌ Error en Mercado Pago:', err);
             alert('Hubo un problema con Mercado Pago.');
