@@ -23,7 +23,7 @@ const Cursos = () => {
   const PRECIO_ANTERIOR_CURSO = '70000'; 
 
   useEffect(() => {
-  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 1 }]); // precio actual
+  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 55000 }]); // precio actual
 }, []);
 
   // Validar campos
