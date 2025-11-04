@@ -45,6 +45,7 @@ const Cursos = () => {
 
       if (container) {
         const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'btn btn-primary btn-lg w-100';
         btn.textContent = 'Pagar con Mercado Pago 🇦🇷';
         btn.onclick = async () => {
