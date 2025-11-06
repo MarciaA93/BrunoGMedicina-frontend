@@ -148,8 +148,8 @@ function Turnero() {
             <h5 className="text-violet">PACK TERAPÉUTICO PREMIUM:</h5>
             <p>
               <strong>¡OFERTA!</strong> en un pago:<br />
-              • 2 sesiones a $50.000<br />
-              • 4 sesiones a $100.000<br />
+              • 2 sesiones de masaje completo a $60.000<br />
+              • 4 sesiones de masaje completo a $100.000<br />
               Tenés 2 meses para agendar las sesiones. <br />
               Comprando el pack, al agendar la primera sesión, las restantes se coordinan con el masajista.
             </p>
