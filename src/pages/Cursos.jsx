@@ -182,15 +182,16 @@ const Cursos = () => {
       </div>
 
       {/* Modal de Compra (Solo usado para el Curso) */}
-      <Modal show={showModal} onHide={handleCloseModal} centered backdrop="static">
-        <Modal.Header closeButton className="custom-popup">
+      <Modal show={showModal} onHide={handleCloseModal} centered backdrop="static" 
+       className="custom-popup">
+        <Modal.Header closeButton className="border-0">
           <Modal.Title>
             {productoSeleccionado === 'curso'
               ? 'Comprar Curso'
               : 'Reservar Sesión 1 a 1'}
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="custom-popup">
+        <Modal.Body className="px-4 py-4">
           {compraExitosa ? (
             <div className="text-center py-4">
               <h2 className="text-success mb-3">✅ ¡Compra Exitosa!</h2>

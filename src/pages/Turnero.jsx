@@ -107,7 +107,8 @@ function Turnero() {
   };
 
   return (
-    <div className="container py-5 d-flex flex-column flex-md-row gap-4" style={{ paddingTop: '4rem' }}>
+    <div className="container turnero-wrapper d-flex flex-column flex-md-row gap-4">
+
       {bloqueado ? (
         <div className="d-flex flex-column justify-content-center align-items-center text-center w-100 py-5">
           <h2 className="mb-3">🚧 Sitio en construcción 🚧</h2>
@@ -179,7 +180,14 @@ function Turnero() {
             {showPopup && (
               <div className="popup-container position-fixed top-50 start-50 translate-middle p-4 custom-popup"
                 style={{ zIndex: 1050, maxWidth: '500px', width: '100%' }}>
-                <h5 className="mb-3">Horarios disponibles para {selectedDate.toDateString()}</h5>
+                <h5 className="mb-3">
+  Horarios disponibles para{" "}
+  {selectedDate.toLocaleDateString("es-AR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long"
+  })}
+</h5>
                 <div className="d-flex flex-wrap gap-2 mb-4">
                   {horariosDisponibles.length > 0
                     ? horariosDisponibles.map(h => (

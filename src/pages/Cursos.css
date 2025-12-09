@@ -1,31 +1,124 @@
+/* ============================
+   CURSOS — TARJETAS
+   ============================ */
+
 .custom-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #1e1e2a !important;
+  background: #f5f0ff !important; /* violeta pastel */
+  border-radius: 18px !important;
+  overflow: hidden;
+  border: none !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .custom-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.20);
 }
-.custom-popup {
-  background-color: #C9BBEB; /* fondo oscuro */
-  color: #000000; /* texto blanco */
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+/* Imágenes con zoom */
+.image-container {
+  overflow: hidden;
 }
+
 .zoom-img {
-  transition: transform 0.4s ease;
+  transition: transform 0.45s ease;
 }
 
 .image-container:hover .zoom-img {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
-.card-title {
-  color: #f0f0f0;
+/* Títulos */
+.custom-card .card-title {
+  color: #4a2c82 !important;
+  font-weight: 700;
 }
 
-.card-text {
-  color: #ccc;
+.custom-card h5 {
+  color: #6b4eaa !important;
+  font-weight: 600;
+}
+
+.custom-card .card-text {
+  color: #3d3352;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+
+/* ============================
+   BOTONES
+   ============================ */
+
+.btn-secondary {
+  background-color: #4a2c82 !important;
+  border-color: #4a2c82 !important;
+  color: #fff !important;
+  border-radius: 14px !important;
+  padding: 10px 20px !important;
+  font-weight: 600 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #6a3fcc !important;
+  border-color: #6a3fcc !important;
+}
+
+.btn-primary {
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+}
+
+
+/* ============================
+   MODAL — POPUP ELEGANTE
+   ============================ */
+
+.modal-content.custom-popup {
+  border-radius: 22px !important;
+  background: #ffffff !important;
+  border: 1px solid #e8ddff !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25) !important;
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* Header */
+.custom-popup .modal-header {
+  border-bottom: none !important;
+}
+
+.custom-popup .modal-title {
+  color: #4a2c82 !important;
+  font-weight: 700 !important;
+}
+
+/* Body */
+.custom-popup .modal-body label {
+  font-weight: 600;
+  color: #4a2c82;
+}
+
+/* Footer */
+.modal-footer.bg-dark {
+  background: #f5f0ff !important;
+  border-bottom-left-radius: 22px !important;
+  border-bottom-right-radius: 22px !important;
+}
+
+/* MP Button */
+#mercadopago-button-container button {
+  border-radius: 14px !important;
+  font-weight: 700 !important;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

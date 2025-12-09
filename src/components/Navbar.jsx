@@ -41,11 +41,16 @@ useEffect(() => {
   };
 
   return (
-    <nav className="navbar navbar-expand-md navbar-light shadow-sm">
+    <nav className="navbar navbar-expand-md">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/" onClick={handleNavClick}>
-          BRUNO GRATTONI
-        </Link>
+       <Link className="navbar-brand d-flex align-items-center gap-2" to="/" onClick={handleNavClick}>
+  <img 
+    src="/img/favicon.svg" 
+    alt="Logo" 
+    className="navbar-logo"
+  />
+  BrunoGrattoni
+</Link>
 
         <button
           className="navbar-toggler"
@@ -62,16 +67,16 @@ useEffect(() => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav align-items-center">
             <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={handleNavClick}>INICIO</Link>
+              <Link className="nav-link" to="/" onClick={handleNavClick}>Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about" onClick={handleNavClick}>SOBRE MÍ</Link>
+              <Link className="nav-link" to="/about" onClick={handleNavClick}>Sobre Mí</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/turnos" onClick={handleNavClick}>TURNOS</Link>
+              <Link className="nav-link" to="/turnos" onClick={handleNavClick}>Turnos</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/cursos" onClick={handleNavClick}>CAPACITACION</Link>
+              <Link className="nav-link" to="/cursos" onClick={handleNavClick}>Capacitación</Link>
             </li>
 
             {!isLoggedIn ? (

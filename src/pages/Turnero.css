@@ -1,91 +1,215 @@
-/*.custom-calendar {
-  background-color: #1f1f1f;
-  border-radius: 10px;
-  color: white;
-  padding: 10px;
-}
-  /* --- NUEVO: Estilo para los días con turnos disponibles --- */
-.dia-disponible {
-  background-color: #d050d0 !important; /* Un verde clarito */
-  border-radius: 50%;
-  font-weight: bold;
-  color: #571554 !important;
+
+ /* ============================
+   ESTILO GENERAL DEL TURNERO
+   ============================ */
+.turnero-wrapper {
+  background: #faf7f2; /* crema suave */
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
 }
 
-.react-calendar__tile--active {
-  background: #0d6dfd3e !important;
-  color: white !important;
-}*/
-.turnero-container {
-  padding-top: 4rem;
-   display: flex;
-  flex-direction: column;
-  gap: 1.5rem; /* o el espacio que necesites */
-}
-.overlay-text {
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  font-weight: 600;
-  text-align: center;
-}
-.custom-popup {
-  background-color: #C9BBEB; /* fondo oscuro */
-  color: #000000; /* texto blanco */
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-}
-
+/* ============================
+   TITULOS
+   ============================ */
 .text-violet {
-  color: #2d0055;
-}
-/* Calendario base */
-.custom-calendar {
-  background-color: #C9BBEB; /* fondo oscuro */
-  color: #ffffff; /* texto claro */
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  border: none;
+  color: #5b3c8a !important;
 }
 
-/* Navegación (flechas y mes) */
-.custom-calendar .react-calendar__navigation {
-  background-color: #C9BBEB;
-  border-radius: 8px;
-  margin-bottom: 8px;
+/* ============================
+   CALENDARIO
+   ============================ */
+
+.custom-calendar {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 100%;
 }
 
 .custom-calendar .react-calendar__navigation button {
-  color: #ffffff;
-  background: none;
-  border: none;
-  font-weight: bold;
+  color: #5b3c8a;
+  font-weight: 600;
 }
 
-.custom-calendar .react-calendar__tile {
-  background: none;
-  border-radius: 8px;
-  padding: 10px 0;
-  transition: background-color 0.2s ease;
-  color: #0c0c0c;
-}
-
-/* Hover y selección */
-.custom-calendar .react-calendar__tile:hover {
-  background-color: #404052;
-}
-
-.custom-calendar .react-calendar__tile--active,
-.custom-calendar .react-calendar__tile--hasActive {
-  background-color: #273849;
-  color: #fff;
-}
-
-/* Días de semana */
 .custom-calendar .react-calendar__month-view__weekdays {
-  color: #fdfdfd;
   text-transform: uppercase;
   font-size: 0.75rem;
-  margin-bottom: 5px;
+  color: #5b3c8a;
+}
+
+/* Días */
+.custom-calendar .react-calendar__tile {
+  border-radius: 10px;
+  padding: 10px 0;
+  color: #333 !important;
+}
+
+/* Hover */
+.custom-calendar .react-calendar__tile:hover {
+  background: #efe5ff !important;
+}
+
+/* Día seleccionado */
+.custom-calendar .react-calendar__tile--active {
+  background: #d8c6ff !important;
+  color: #000 !important;
+}
+
+/* Días con turnos disponibles */
+.dia-disponible {
+  background: #e8dbff !important;
+  border-radius: 10px !important;
+  color: #4a2c82 !important;
+  font-weight: 600 !important;
+}
+
+/* ============================
+   POPUP (horarios + formulario)
+   ============================ */
+.custom-popup {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  color: #333;
+  box-shadow: 0 6px 26px rgba(0,0,0,0.25);
+  border: 1px solid #eee;
+}
+
+/* botones */
+.custom-popup .btn-outline-secondary {
+  border-radius: 10px;
+  border-color: #bfa5ff;
+  color: #4a2c82;
+}
+
+.custom-popup .btn-outline-secondary:hover {
+  background: #efe5ff;
+}
+
+.custom-popup .btn-secondary {
+  background: #6a4cbc !important;
+  border: none;
+  border-radius: 10px;
+}
+
+.custom-popup .btn-dark {
+  border-radius: 10px;
+}
+
+/* ============================
+   FORMULARIO CLIENTE
+   ============================ */
+.form-control {
+  border-radius: 8px;
+  border-color: #d4c8f5;
+}
+
+.btn-success {
+  border-radius: 10px;
+}
+
+.btn-secondary {
+  border-radius: 10px;
+}
+/* ================================
+   OVERRIDE: quitar amarillo del "hoy"
+   ================================ */
+
+/* Normaliza el día actual */
+.custom-calendar .react-calendar__tile--now,
+.custom-calendar .react-calendar__tile--now:enabled,
+.custom-calendar .react-calendar__tile--now.react-calendar__tile--active,
+.custom-calendar .react-calendar__tile--now.react-calendar__tile--hasActive {
+  background: transparent !important;
+  color: #4a2c82 !important;           /* color violeta oscuro de la marca */
+  font-weight: 600 !important;
+  box-shadow: none !important;
+}
+
+/* Si querés que "hoy" tenga el mismo estilo que días disponibles (ligero fondo violeta) */
+.custom-calendar .react-calendar__tile--now.custom-today {
+  background: #e8dbff !important;
+  color: #4a2c82 !important;
+}
+
+/* Asegura que el hover no muestre amarillo */
+.custom-calendar .react-calendar__tile--now:hover,
+.custom-calendar .react-calendar__tile--now:focus {
+  background: #efe5ff !important;
+  color: #4a2c82 !important;
+}
+
+/* Días deshabilitados y vecinos siguen neutros */
+.custom-calendar .react-calendar__tile--disabled,
+.custom-calendar .react-calendar__month-view__days__day--neighboringMonth {
+  background: transparent !important;
+  color: #ccc !important;
+  opacity: 0.9;
+}
+
+/* ============================
+   POPUP MODERNO / ESTÉTICO
+   ============================ */
+
+.custom-popup {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.20);
+  animation: fadeIn 0.25s ease-out;
+  border: 1px solid #f0e6ff;
+}
+
+/* Título */
+.custom-popup h5 {
+  font-weight: 700;
+  color: #4a2c82;
+  text-transform: capitalize;
+}
+
+/* Botón de horario */
+.custom-popup button.btn {
+  border-radius: 12px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+}
+
+/* Horario seleccionado */
+.custom-popup .btn-secondary {
+  background-color: #4a2c82 !important;
+  border-color: #4a2c82 !important;
+  color: white !important;
+}
+
+/* Horario normal */
+.custom-popup .btn-outline-secondary {
+  border-color: #bba6d9 !important;
+  color: #4a2c82 !important;
+}
+
+.custom-popup .btn-outline-secondary:hover {
+  background-color: #f3eaff !important;
+  border-color: #4a2c82 !important;
+}
+
+/* Botón cerrar */
+.custom-popup .btn-dark {
+  border-radius: 14px;
+  padding: 0.7rem;
+  font-weight: 600;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }

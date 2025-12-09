@@ -1,0 +1,518 @@
+/* ===========================
+   TIPOGRAFÍAS
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Colors */
+  --primary: #3C2E7B;
+  --secondary: #958BBD;
+  --text-light: #FFFFFF;
+  --bg-dark: #1A1A1A;
+
+  /* Typography */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Calibri', sans-serif;
+
+  /* Spacing & style */
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  --shadow-soft: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: #3C2E7B;
+  color: var(--secondary);
+}
+
+/* NAVBAR ESTILO PERSONALIZADO */
+.navbar {
+  background-color: var(--primary) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #FFFFFF !important;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  color: var(--secondary) !important;
+}
+
+/* Botón hamburguesa blanco */
+.navbar-toggler {
+  border-color: #FFFFFF;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+.navbar-logo {
+  height: 32px;      /* Ajustá el tamaño a gusto */
+  width: auto;
+  object-fit: contain;
+}
+
+/* === HERO === */
+.image-overlay-container {
+  position: relative;
+  width: 100%;
+  height: 480px;           /* Ajustable: 420 / 500 / 600 */
+  overflow: hidden;
+}
+
+/* Video de fondo */
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* Cubre ancho sin deformarse */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Capa oscura suave sobre el video */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35); /* Ajusta opacidad si hace falta */
+  z-index: 2;
+}
+
+/* Logo centrado */
+.hero-centered-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50rem;            /* Ajustá según tu logo */
+  width: auto;
+  z-index: 3;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+/* Ajuste especial para mobile */
+@media (max-width: 600px) {
+  .hero-centered-logo {
+    width: clamp(160px, 45vw, 260px); /* Más grande en pantallas chicas */
+  }
+
+  .image-overlay-container {
+    height: 60vh; /* Evita que se corte el video */
+  }
+}
+/* === GALERÍA === */
+
+.container-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 20px;
+  flex-wrap: wrap; /* Para que en mobile no se rompa */
+}
+
+.container-gallery .popup {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 240px;      /* Ajustalo si querés más grande */
+  height: 160px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.container-gallery .popup img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+/* Efecto hover */
+.container-gallery .popup:hover img {
+  transform: scale(1.08);
+}
+
+/* Sombra suave */
+.container-gallery .popup {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container-gallery .popup {
+    width: 46%;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-gallery .popup {
+    width: 100%;
+    height: 160px;
+  }
+}
+/* ===========================
+   BOTÓN PRINCIPAL
+   =========================== */
+.btn-primary {
+  background-color: var(--secondary);
+  color: var(--text-light);
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary);
+}
+
+
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer {
+  background: var(--primary);
+  color: var(--text-light);
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 60px;
+}
+
+/* =======================================
+   CARDS — ESTILO FIX SIN ROMPER DISEÑO
+   ======================================= */
+
+/* Fondo SOLO del cuerpo de la card (no de toda la card) */
+.card.custom-card {
+  background-color: #f6ecff !important; /* Lila claro real */
+  border: none !important;
+  overflow: hidden; /* evita saltos de borde */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen: borde solo arriba */
+.card.custom-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0 !important;
+  display: block;
+}
+
+/* Título */
+.card.custom-card .card-title {
+  color: #3C2E7B !important; /* lila oscuro para contraste */
+  font-weight: 700;
+}
+
+/* Texto */
+.card.custom-card .card-text {
+  color: #3C2E7B !important;
+  line-height: 1.5;
+}
+
+/* Botón */
+.card.custom-card .btn-primary {
+  background-color: #3C2E7B !important;
+  border: none !important;
+}
+
+/* Imágenes de cards con tamaño uniforme */
+.card.custom-card img {
+  width: 100%;
+  height: 260px; /* Ajustá el alto que prefieras */
+  object-fit: cover;
+  border-radius: 12px 12px 0 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card.custom-card img {
+    height: 220px;
+    object-fit: cover;
+  }
+}
+
+/* ============================
+   TESTIMONIOS — ESTILO MEJORADO
+   ============================ */
+
+.testimonios-section {
+  padding: 60px 0;
+}
+
+/* Contenedor del testimonio */
+.testimonio {
+  padding: 0 40px; /* evita que el texto toque las flechas */
+  text-align: center;
+  color: #fff;
+}
+
+/* Avatar redondo */
+.testimonio .avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #958BBD;
+}
+
+/* Texto del testimonio */
+.testimonio p {
+  max-width: 700px; /* controla el ancho del texto */
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* Botón "Ver más / Ver menos" */
+.testimonio .btn-link {
+  color: #958BBD !important;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Estrellas */
+.estrellas {
+  font-size: 1.4rem;
+  margin-top: 10px;
+  color: #FFD97D;
+}
+
+/* Nombre */
+.testimonio p:last-of-type {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonio {
+    padding: 0 20px;
+  }
+
+  .testimonio p {
+    max-width: 90%;
+    font-size: 1rem;
+  }
+
+  .testimonio .avatar {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+
+/* ============================
+   FOOTER — ESTILO UNIFICADO
+   ============================ */
+
+.footer-section {
+  background-color: #3C2E7B; /* color principal */
+  color: #ffffff;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+.footer-social a {
+  color: #ffffff;
+  margin: 0 12px;
+  transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #958BBD; /* lila claro */
+  transform: scale(1.15);
+}
+
+/* Texto principal */
+.footer-text {
+  margin: 10px 0 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Créditos */
+.footer-author {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.footer-author a {
+  color: #958BBD;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-author a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 30px 0;
+  }
+
+  .footer-social a {
+    margin: 0 10px;
+  }
+}
+
+
+/* ============================
+   ABOUT SECTION — ESTILO UNIFICADO
+   ============================ */
+
+/* Título */
+.about-title {
+  color: #ffffff; /* blanco */
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+}
+
+/* Texto general */
+.about-text {
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Collage */
+.collage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.collage-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+.collage-img-central {
+  height: 250px;
+  grid-column: span 2;
+  object-fit: cover;
+}
+
+/* Links del texto */
+.about-link {
+  color: #958BBD; /* lila claro */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.about-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Mapa */
+.map-container {
+  border: 2px solid #958BBD;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 15px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+.map-embed iframe {
+  border: 2px solid #958BBD;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 15px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block; /* <-- Esto elimina el margen fantasma */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .collage-img {
+    height: 150px;
+  }
+  .collage-img-central {
+    height: 200px;
+  }
+}
+
+/* Contenedor principal */
+.container-gallery-wrapper {
+  width: 100%;
+  margin: auto;
+}
+
+/* DESKTOP: grilla original */
+.gallery-desktop {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.gallery-desktop .popup img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* MOBILE: Swiper carrusel */
+.gallery-mobile {
+  display: none;
+}
+
+/* --- Mobile mode --- */
+@media (max-width: 768px) {
+  .gallery-desktop {
+    display: none; /* ocultamos la grilla */
+  }
+
+  .gallery-mobile {
+    display: block; /* mostramos swiper */
+  }
+
+  .gallery-mobile .popup img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+
+  .gallery-mobile .swiper-button-next,
+  .gallery-mobile .swiper-button-prev {
+    display: none !important;
+  }
+}
