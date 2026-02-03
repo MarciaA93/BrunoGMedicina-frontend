@@ -129,20 +129,21 @@ function Turnero() {
             <p>
               <strong className="text-violet"> MASAJE TRADICIONAL :</strong> <br />
               MEDIO CUERPO Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
-              <strong>Valor:</strong> $30.000<br />
+              
               <strong>Duración:</strong> 30 min
             </p>
             <p>
               <strong className="text-violet"> MASAJE COMPLETO :</strong> <br />
               CUERPO ENTERO Descontracturante/Terapéutico. Contribuye a reducir el estrés y la ansiedad.
               Incluye GuaSha y Ventosas.<br />
-              <strong>Valor:</strong> $35.000<br />
+              
               <strong>Duración:</strong> 60 min
             </p>
             <p>
               <strong className="text-violet"> MASAJE EXCLUSIVO :</strong> <br />
               CUERPO ENTERO Combina todas las técnicas de la medicina china más sesión de ejercicios específicos segun requiera cada caso.<br />
-              <strong>Valor:</strong> $50.000<br />
+              
+            
               <strong>Duración:</strong> 90 min
             </p>
             <hr />
