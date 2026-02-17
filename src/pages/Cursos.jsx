@@ -121,7 +121,7 @@ const Cursos = () => {
               <h4 className="card-title">CAPACITACION MASAJE TUINA: </h4>
               <h5>TÉCNICAS PROFESIONALES DE LA MEDICINA CHINA</h5>
               <p className="card-text">
-                El masaje TuiNa es una rama terapéutica de la Medicina Tradicional China que consta de varias técnicas utilizadas para estimular el flujo de Qi y sangre, liberar bloqueos y contracturas restaurar el equilibrio del cuerpo. Se aplica tanto en dolores físicos como musculares, como en desequilibrios internos. Es uno de los pilares de la medicina china, junto con la acupuntura, la fitoterapia y el Qi Gong.
+                El masaje TuiNa es una rama  de la Medicina Tradicional China que consta de varias técnicas terapéuticas utilizadas para estimular el flujo de Qi y sangre, liberar bloqueos y contracturas, y restaurar el equilibrio del cuerpo. Se aplica tanto para mejorar dolores físicos y musculares, como en desequilibrios internos y emocionales. Es uno de los pilares de la medicina china, junto con la acupuntura, la fitoterapia y el Qi Gong.
               </p>
               <div className="mb-3">
                 <p className="fw-bold mb-1">✨ Pack completo: 5 videos + PDF</p>
