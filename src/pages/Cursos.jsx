@@ -20,10 +20,10 @@ const Cursos = () => {
   const [precios, setPrecios] = useState([]);
 
   // Precio anterior de la oferta (Precio tachado). ¡AJUSTA ESTE VALOR según sea necesario!
-  const PRECIO_ANTERIOR_CURSO = '70000'; 
+  const PRECIO_ANTERIOR_CURSO = '55000'; 
 
   useEffect(() => {
-  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 55000 }]); // precio actual
+  setPrecios([{ nombreCurso: 'Curso de Masaje TuiNa', price_ars: 32000 }]); // precio actual
 }, []);
 
   // Validar campos
