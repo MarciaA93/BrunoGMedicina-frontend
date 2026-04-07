@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import TextoColapsable from '../components/TextoColapsable';
 
 function Home() {
   const [expandidoIndex, setExpandidoIndex] = useState(null);
@@ -51,17 +52,17 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
     <div>
 
       {/* HERO */}
-    
-<div className="image-overlay-container">
-  <video className="background-video" autoPlay muted loop playsInline>
-    <source src="/video/video1.mp4" type="video/mp4" />
-  </video>
 
-  <div className="overlay"></div>
+      <div className="image-overlay-container">
+        <video className="background-video" autoPlay muted loop playsInline>
+          <source src="/video/video1.mp4" type="video/mp4" />
+        </video>
 
-  {/* LOGO CENTRADO SOBRE EL VIDEO */}
-  <img src="/img/logo 1.svg" alt="Logo" className="hero-centered-logo" />
-</div>
+        <div className="overlay"></div>
+
+        {/* LOGO CENTRADO SOBRE EL VIDEO */}
+        <img src="/img/logo 1.svg" alt="Logo" className="hero-centered-logo" />
+      </div>
 
       {/* Bienvenidos */}
       <div className="container py-5">
@@ -71,36 +72,36 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
       </div>
 
       {/* Galería */}
-<div className="container-gallery-wrapper">
-  {/* DESKTOP → grilla */}
-  <div className="gallery-desktop">
-    {["021.jpg", "nueva1.jpg", "04.jpg", "nueva2.jpg", "015.jpg"].map((img, i) => (
-      <div className="popup" key={i}>
-        <img src={`/img/galeria/${img}`} alt={`Galería ${i + 1}`} />
-      </div>
-    ))}
-  </div>
+      <div className="container-gallery-wrapper">
+        {/* DESKTOP → grilla */}
+        <div className="gallery-desktop">
+          {["021.jpg", "nueva1.jpg", "04.jpg", "nueva2.jpg", "015.jpg"].map((img, i) => (
+            <div className="popup" key={i}>
+              <img src={`/img/galeria/${img}`} alt={`Galería ${i + 1}`} />
+            </div>
+          ))}
+        </div>
 
-  {/* MOBILE → Swiper */}
-  <div className="gallery-mobile">
-    <Swiper
-      modules={[Navigation, Autoplay]}
-      autoplay={{ delay: 3500 }}
-      loop
-      spaceBetween={20}
-      slidesPerView={1}
-      navigation
-    >
-      {["021.jpg", "nueva1.jpg", "04.jpg", "nueva2.jpg", "015.jpg"].map((img, i) => (
-        <SwiperSlide key={i}>
-          <div className="popup">
-            <img src={`/img/galeria/${img}`} alt={`Galería ${i + 1}`} />
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
-</div>
+        {/* MOBILE → Swiper */}
+        <div className="gallery-mobile">
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            autoplay={{ delay: 3500 }}
+            loop
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+          >
+            {["021.jpg", "nueva1.jpg", "04.jpg", "nueva2.jpg", "015.jpg"].map((img, i) => (
+              <SwiperSlide key={i}>
+                <div className="popup">
+                  <img src={`/img/galeria/${img}`} alt={`Galería ${i + 1}`} />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
 
 
       {/* SERVICIOS */}
@@ -111,34 +112,54 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
 
         <div className="row">
           {/* CARD 1 */}
-          <div className="col-md-4 mb-4">
+          <div className="col-md-3 mb-4">
             <div className="card custom-card h-100">
               <img src="/img/07.jpg" className="card-img-top" alt="Masaje Tuina" />
               <div className="card-body">
                 <h5 className="card-title">Masaje Tuina</h5>
-                <p className="card-text">
- El masaje TuiNa es una rama terapéutica  de la Medicina Tradicional China, diseñada para restablecer el equilibrio del cuerpo y la mente. A través de maniobras específicas se estimula la circulación del Qi y la sangre, se liberan bloqueos energéticos, tensiones y contracturas.
-              
-Este masaje es efectivo tanto para dolores físicos como para desequilibrios emocionales y energéticos.
-                </p>
+                <TextoColapsable>
+  <p className="mb-2">
+    El masaje <strong>TuiNa</strong> es una rama terapéutica de la Medicina Tradicional China, diseñada para restablecer el equilibrio del cuerpo y la mente. A través de maniobras específicas se estimula la circulación del Qi y la sangre, liberando bloqueos energéticos, tensiones y contracturas.
+  </p>
+
+  <p className="mb-0">
+    Este masaje es efectivo tanto para dolores físicos como para desequilibrios emocionales y energéticos.
+  </p>
+</TextoColapsable>
                 <a href="/turnos" className="btn btn-primary">
-                 Reservar turno
+                  Reservar turno
                 </a>
               </div>
             </div>
           </div>
 
           {/* CARD 2 */}
-          <div className="col-md-4 mb-4">
+          <div className="col-md-3 mb-4">
             <div className="card custom-card h-100">
-              <img src="/img/03.jpg" className="card-img-top" alt="Curso online" />
+              <img src="/img/jing2.png" className="card-img-top" alt="Curso online" />
               <div className="card-body">
-                <h5 className="card-title">Capacitacion online Tuina</h5>
-                <p className="card-text">
- Descubrí la eficacia del  TuiNa e incorporá estas técnicas profesionales terapéuticas para aplicar a tus sesiones o comenzar a trabajar como masoterapeuta.
-Vas a aprender cómo estimular el flujo de Qi, aliviar dolencias físicas, tratar desequilibrios internos y acompañar procesos de sanación natural.
-Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta transformadora a su camino profesional o personal.
-                </p>
+                <h5 className="card-title">REPROGRAMACIÓN SEXUAL: CÓDIGO JING</h5>
+                <TextoColapsable>
+  <p>
+    El ebook <strong>PRÁCTICO</strong> para optimizar tu energía sexual, tu vitalidad y longevidad.
+  </p>
+
+  <p>
+    Domina tu recurso biológico más valioso. Este manual técnico incorpora algunas técnicas milenarias de la Medicina Tradicional China al lenguaje moderno...
+  </p>
+
+  <p>
+    Deja de perder vitalidad. Empieza a enfocarte.
+  </p>
+
+  <p className="fw-bold mt-3">Lo que vas a aprender:</p>
+
+  <ul>
+    <li><strong>Protocolo de Autocontrol:</strong> Técnicas para dominar tu mente...</li>
+    <li><strong>Gestión de tu energía:</strong> Cómo recircular tu energía...</li>
+    <li><strong>Actualización Biológica:</strong> Rutinas de respiración...</li>
+  </ul>
+</TextoColapsable>
                 <a href="/Cursos" className="btn btn-primary">
                   Ver más
                 </a>
@@ -147,18 +168,51 @@ Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta t
           </div>
 
           {/* CARD 3 */}
-          <div className="col-md-4 mb-4">
+          <div className="col-md-3 mb-4">
             <div className="card custom-card h-100">
               <img src="/img/1.jpg" className="card-img-top" alt="Renueva tu ser" />
               <div className="card-body">
                 <h5 className="card-title">Renueva tu ser</h5>
-                <p className="card-text">
-Sesiones personalizadas en línea para ayudarte a encontrar soluciones profundas y auténticas a tus desafíos personales, físicos, emocionales o espirituales.
-Integro herramientas de la Medicina China, meditación y Yoga terapéutico, para acompañarte en un proceso de autoconocimiento y transformación interior.
-Estas sesiones son un espacio de escucha, guía y reconexión. Empieza a SER el cambio que estás buscando.
-                </p>
+               <TextoColapsable>
+  <p className="mb-2">
+    Sesiones personalizadas en línea para ayudarte a encontrar soluciones profundas y auténticas a tus desafíos personales, físicos, emocionales o espirituales.
+  </p>
+
+  <p className="mb-2">
+    Integro herramientas de la Medicina China, meditación y Yoga terapéutico, para acompañarte en un proceso de autoconocimiento y transformación interior.
+  </p>
+
+  <p className="mb-0">
+    Estas sesiones son un espacio de escucha, guía y reconexión. <strong>Empieza a SER el cambio que estás buscando.</strong>
+  </p>
+</TextoColapsable>
                 <a href="/Cursos" className="btn btn-primary">
                   Agenda tu Sesión
+                </a>
+              </div>
+            </div>
+          </div>
+          {/* CARD 4 */}
+          <div className="col-md-3 mb-4">
+            <div className="card custom-card h-100">
+              <img src="/img/03.jpg" className="card-img-top" alt="Curso online" />
+              <div className="card-body">
+                <h5 className="card-title">Capacitacion online Tuina</h5>
+                <TextoColapsable>
+  <p className="mb-2">
+    Descubrí la eficacia del <strong>TuiNa</strong> e incorporá estas técnicas profesionales terapéuticas para aplicar a tus sesiones o comenzar a trabajar como masoterapeuta.
+  </p>
+
+  <p className="mb-2">
+    Vas a aprender cómo estimular el flujo de Qi, aliviar dolencias físicas, tratar desequilibrios internos y acompañar procesos de sanación natural.
+  </p>
+
+  <p className="mb-0">
+    Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta transformadora a su camino profesional o personal.
+  </p>
+</TextoColapsable>
+                <a href="/Cursos" className="btn btn-primary">
+                  Ver más
                 </a>
               </div>
             </div>
