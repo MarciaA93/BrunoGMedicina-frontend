@@ -243,10 +243,19 @@ const Cursos = () => {
             <div className="card-body">
               <h4 className="card-title">CAPACITACION MASAJE TUINA: </h4>
               <h5>TÉCNICAS PROFESIONALES DE LA MEDICINA CHINA</h5>
-              <TextoColapsable
-                className="card-text"
-                texto="El masaje TuiNa es una rama de la Medicina Tradicional China que consta de varias técnicas terapéuticas utilizadas para estimular el flujo de Qi y sangre, liberar bloqueos y contracturas, y restaurar el equilibrio del cuerpo. Se aplica tanto para mejorar dolores físicos y musculares, como en desequilibrios internos y emocionales. Es uno de los pilares de la medicina china, junto con la acupuntura, la fitoterapia y el Qi Gong."
-              />
+              <TextoColapsable>
+  <p className="mb-2">
+    Descubrí la eficacia del <strong>TuiNa</strong> e incorporá estas técnicas profesionales terapéuticas para aplicar a tus sesiones o comenzar a trabajar como masoterapeuta.
+  </p>
+
+  <p className="mb-2">
+    Vas a aprender cómo estimular el flujo de Qi, aliviar dolencias físicas, tratar desequilibrios internos y acompañar procesos de sanación natural.
+  </p>
+
+  <p className="mb-0">
+    Ideal para terapeutas, estudiantes y personas que deseen sumar una herramienta transformadora a su camino profesional o personal.
+  </p>
+</TextoColapsable>
               <div className="mb-3">
                 <p className="fw-bold mb-1">✨ Pack completo: 5 videos + PDF</p>
                 {/* PRECIO TACHADO SIMULANDO OFERTA ÚNICA */}
