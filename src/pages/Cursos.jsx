@@ -23,6 +23,7 @@ const Cursos = () => {
   const [compraExitosa, setCompraExitosa] = useState(false);
   const [precios, setPrecios] = useState([]);
   const [mostrarToast, setMostrarToast] = useState(false);
+  const [metodoPago, setMetodoPago] = useState('mp');
 
   // Precio anterior de la oferta (Precio tachado). ¡AJUSTA ESTE VALOR según sea necesario!
   const PRECIO_ANTERIOR_CURSO = '55000';
@@ -38,49 +39,104 @@ const Cursos = () => {
   }, [formData]);
 
   // Renderizar botón de Mercado Pago (Solo para el Curso)
+  
+
   useEffect(() => {
-    if (formValid && productoSeleccionado === 'curso') { // Solo renderiza para 'curso'
-      const cursoElegido = precios.find(p => p.nombreCurso.includes('TuiNa'));
+  if (!formValid || productoSeleccionado !== 'curso') return;
 
-      const precio = cursoElegido?.price_ars || 0;
-      const descripcion = 'Curso online: Masaje TuiNa';
-      
-      const container = document.getElementById('mercadopago-button-container');
-      if (container) container.innerHTML = '';
+  const mpContainer = document.getElementById('mercadopago-button-container');
+  const ppContainer = document.getElementById('paypal-button-container');
 
-      if (container) {
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'btn btn-primary btn-lg w-100';
-        btn.textContent = 'Pagar con Mercado Pago 🇦🇷';
-        btn.onclick = async () => {
-          try {
-            const res = await fetch(MERCADOPAGO_API, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                title: descripcion,
-                unit_price: precio,
-                quantity: 1,
-                nombre: formData.nombre,
-                email: formData.email,
-              }),
-            });
-            const data = await res.json();
-            console.log("👉 Respuesta de MP:", data);
-            if (!data.init_point) throw new Error('No se recibió init_point');
+  if (!mpContainer || !ppContainer) return;
 
-            window.location.href = data.init_point;
-          } catch (err) {
-            console.error('❌ Error en Mercado Pago:', err);
-            alert('Hubo un problema con Mercado Pago.');
-          }
-        };
+  // limpiar ambos
+  mpContainer.innerHTML = '';
+  ppContainer.innerHTML = '';
 
-        container.appendChild(btn);
-      }
+  const cursoElegido = precios.find(p => p.nombreCurso.includes('TuiNa'));
+  const precio = cursoElegido?.price_ars || 0;
+  const descripcion = 'Curso online: Masaje TuiNa';
+
+  // ----------------------
+  // BOTÓN MERCADO PAGO
+  // ----------------------
+  const mpBtn = document.createElement('button');
+  mpBtn.type = 'button';
+  mpBtn.className = 'btn btn-primary btn-lg w-100';
+  mpBtn.textContent = 'Pagar con Mercado Pago 🇦🇷';
+
+  mpBtn.onclick = async () => {
+    try {
+      const res = await fetch(MERCADOPAGO_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: descripcion,
+          unit_price: precio,
+          quantity: 1,
+          nombre: formData.nombre,
+          email: formData.email,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!data.init_point) throw new Error('No init_point');
+
+      window.location.href = data.init_point;
+    } catch (err) {
+      console.error(err);
+      alert('Error con Mercado Pago');
     }
-  }, [formValid, productoSeleccionado, formData.email, formData.nombre, precios]);
+  };
+
+  mpContainer.appendChild(mpBtn);
+
+  // ----------------------
+  // PAYPAL
+  // ----------------------
+  if (window.paypal) {
+    window.paypal.Buttons({
+      createOrder: async () => {
+        const res = await fetch(`${API_BASE_URL}/api/paypal/create-order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nombre: formData.nombre,
+            email: formData.email,
+            amount: precio,
+          }),
+        });
+
+        const data = await res.json();
+        return data.orderID;
+      },
+
+      onApprove: async (data) => {
+        const res = await fetch(`${API_BASE_URL}/api/paypal/capture-order`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderID: data.orderID,
+          }),
+        });
+
+        const result = await res.json();
+
+        if (result.status === 'COMPLETED') {
+          window.location.href = '/success?method=paypal';
+        }
+      },
+
+      onError: (err) => {
+        console.error(err);
+        alert('Error con PayPal');
+      },
+    }).render('#paypal-button-container');
+  }
+
+}, [formValid, productoSeleccionado, formData, precios]);
+
 
   const handleInputChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -126,49 +182,49 @@ const Cursos = () => {
               <h4 className="card-title">REPROGRAMACIÓN SEXUAL: </h4>
               <h5>CÓDIGO JING </h5>
               <TextoColapsable>
-  <p>
-    El ebook <strong>PRÁCTICO</strong> para optimizar tu energía sexual, tu vitalidad y longevidad.
-  </p>
+                <p>
+                  El ebook <strong>PRÁCTICO</strong> para optimizar tu energía sexual, tu vitalidad y longevidad.
+                </p>
 
-  <p>
-    Domina tu recurso biológico más valioso. Este manual técnico incorpora algunas técnicas milenarias de la Medicina Tradicional China al lenguaje moderno...
-  </p>
+                <p>
+                  Domina tu recurso biológico más valioso. Este manual técnico incorpora algunas técnicas milenarias de la Medicina Tradicional China al lenguaje moderno...
+                </p>
 
-  <p>
-    Deja de perder vitalidad. Empieza a enfocarte.
-  </p>
+                <p>
+                  Deja de perder vitalidad. Empieza a enfocarte.
+                </p>
 
-  <p className="fw-bold mt-3">Lo que vas a aprender:</p>
+                <p className="fw-bold mt-3">Lo que vas a aprender:</p>
 
-  <ul>
-    <li><strong>Protocolo de Autocontrol:</strong> Técnicas para dominar tu mente...</li>
-    <li><strong>Gestión de tu energía:</strong> Cómo recircular tu energía...</li>
-    <li><strong>Actualización Biológica:</strong> Rutinas de respiración...</li>
-  </ul>
-</TextoColapsable>
+                <ul>
+                  <li><strong>Protocolo de Autocontrol:</strong> Técnicas para dominar tu mente...</li>
+                  <li><strong>Gestión de tu energía:</strong> Cómo recircular tu energía...</li>
+                  <li><strong>Actualización Biológica:</strong> Rutinas de respiración...</li>
+                </ul>
+              </TextoColapsable>
               <div className="mb-3">
-                
+
                 {/* PRECIO TACHADO SIMULANDO OFERTA ÚNICA */}
-               {/* <p className="text-secondary fw-bold mb-0" style={{ fontSize: '1.1rem' }}>
+                {/* <p className="text-secondary fw-bold mb-0" style={{ fontSize: '1.1rem' }}>
                   Precio normal: <del>${PRECIO_ANTERIOR_CURSO} ARS</del>
                 </p>
                 {/* PRECIO ACTUAL */}
-               {/* <p className="text-success fw-bold mb-1" style={{ fontSize: '1.5rem' }}>
+                {/* <p className="text-success fw-bold mb-1" style={{ fontSize: '1.5rem' }}>
                   ¡OFERTA ÚNICA! ${getPrecio('Curso de Masaje TuiNa')} ARS
                 </p> */}
               </div>
-             {/* <button
+              {/* <button
                 className="btn btn-secondary btn-lg"
                 onClick={() => handleShowModal('curso')}
               >
                 COMPRAR
               </button> */}
-          <button
-  className="btn btn-secondary btn-lg"
-  onClick={() => setMostrarToast(true)}
->
-  COMPRAR
-</button>
+              <button
+                className="btn btn-secondary btn-lg"
+                onClick={() => setMostrarToast(true)}
+              >
+                COMPRAR
+              </button>
 
 
             </div>
@@ -287,10 +343,18 @@ const Cursos = () => {
                   placeholder="ejemplo@email.com"
                 />
               </Form.Group>
+
+
               {formValid ? (
-                <div id="mercadopago-button-container" className="mb-2" />
+                <>
+                  <div id="mercadopago-button-container" className="mb-2" />
+                  <p className="text-center text-muted">o pagar con tarjeta internacional</p>
+                  <div id="paypal-button-container" className="mb-2" />
+                </>
               ) : (
-                <p className="text-secondary">Completá los datos para continuar con el pago.</p>
+                <p className="text-secondary">
+                  Completá los datos para continuar con el pago.
+                </p>
               )}
             </Form>
           )}
@@ -299,12 +363,12 @@ const Cursos = () => {
           <Button variant="secondary" onClick={handleCloseModal}>Cancelar</Button>
         </Modal.Footer>
       </Modal>
-  <Toast
-      mostrar={mostrarToast}
-      mensaje="🚀 Próximamente disponible"
-      onClose={() => setMostrarToast(false)}
-    />
-      
+      <Toast
+        mostrar={mostrarToast}
+        mensaje="🚀 Próximamente disponible"
+        onClose={() => setMostrarToast(false)}
+      />
+
     </div>
   );
 };
