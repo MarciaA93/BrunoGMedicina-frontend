@@ -147,17 +147,16 @@ function Turnero() {
               <strong>Duración:</strong> 90 min
             </p>
             <hr />
-            <h5 className="text-violet">PACK TERAPÉUTICO PREMIUM:</h5>
+            <h5 className="text-violet">PACK TERAPÉUTICO MASAJE:</h5>
             <p>
-              <strong>¡OFERTA!</strong> en un pago:<br />
-              • 2 sesiones de masaje completo (Ver al reservar)<br />
-              • 4 sesiones de masaje completo (Ver al reservar)<br />
-              Tenés 2 meses para agendar las sesiones. <br />
-              Comprando el pack, al agendar la primera sesión, las restantes se coordinan con el masajista.
+              <strong>¡OFERTA!</strong>en 1 (UN) pago POR TRANFERENCIA a:<br />
+              ALIAS: brunomtc 
+              Bruno Gabriel Grattoni.<br />
+              * 2 sesiones 60.000 pesos.<br />
+              * 4 sesiones 100.000 pesos.<br />
             </p>
             <p>
-              Todos los masajes pueden incluir Drenaje Linfático.<br />
-              Los tiempos son estimativos, si se extiende no hay recargo.
+             👉Comprando el pack los días y  horarios de las sesiónes se coordinan con el terapeuta.
             </p>
           </div>
 
