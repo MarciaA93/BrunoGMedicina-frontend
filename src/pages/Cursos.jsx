@@ -169,7 +169,7 @@ const Cursos = () => {
     <div className="container my-5">
       <div className="row g-4">
         {/* Curso Digitopuntura (Con precio tachado) */}
-        <div className="col-12 col-sm-6 col-md-4">
+         {/*<div className="col-12 col-sm-6 col-md-4">
           <div className="card custom-card text-light border-0 shadow rounded-4 h-100">
             <div className="image-container">
               <img
@@ -204,21 +204,9 @@ const Cursos = () => {
               </TextoColapsable>
               <div className="mb-3">
 
-                {/* PRECIO TACHADO SIMULANDO OFERTA ÚNICA */}
-                {/* <p className="text-secondary fw-bold mb-0" style={{ fontSize: '1.1rem' }}>
-                  Precio normal: <del>${PRECIO_ANTERIOR_CURSO} ARS</del>
-                </p>
-                {/* PRECIO ACTUAL */}
-                {/* <p className="text-success fw-bold mb-1" style={{ fontSize: '1.5rem' }}>
-                  ¡OFERTA ÚNICA! ${getPrecio('Curso de Masaje TuiNa')} ARS
-                </p> */}
+               
               </div>
-              {/* <button
-                className="btn btn-secondary btn-lg"
-                onClick={() => handleShowModal('curso')}
-              >
-                COMPRAR
-              </button> */}
+              
               <button
                 className="btn btn-secondary btn-lg"
                 onClick={() => setMostrarToast(true)}
@@ -229,9 +217,10 @@ const Cursos = () => {
 
             </div>
           </div>
-        </div>
+        </div> */}
+
         {/* Nuevo curso */}
-        <div className="col-12 col-sm-6 col-md-4">
+        <div className="col">
           <div className="card custom-card text-light border-0 shadow rounded-4 h-100">
             <div className="image-container">
               <img
@@ -278,7 +267,7 @@ const Cursos = () => {
         </div>
 
         {/* Sesión 1 a 1 (Con precio comentado y botón de WhatsApp) */}
-        <div className="col-12 col-sm-6 col-md-4">
+         {/*<div className="col-12 col-sm-6 col-md-4">
           <div className="card custom-card bg-dark text-light border-0 shadow rounded-4 h-100">
             <div className="image-container">
               <img
@@ -294,15 +283,10 @@ const Cursos = () => {
                   Consultas personalizadas en línea para ayudarte a encontrar soluciones específicas a tus afecciones. En estas sesiones, también, usaremos técnicas de Medicina China, Yoga y Meditación, que te acompañarán en un viaje de autoconocimiento y crecimiento personal/espiritual.
                 </p>
                 <hr />
-                {/* PRECIO COMENTADO */}
-                {/*
-                <h5>
-                  <strong>Precio:</strong> ${getPrecio('Renueva tu SER - Sesión 1 a 1')} ARS
-                </h5>
-                */}
+               
 
               </div>
-              {/* BOTÓN DE WHATSAPP CON MENSAJE PREDEFINIDO */}
+              
               <button
                 className="btn btn-secondary btn-lg"
                 onClick={() => handleShowModal('sesion')} // Esta función redirige a WhatsApp
@@ -311,7 +295,7 @@ const Cursos = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
 
       {/* Modal de Compra (Solo usado para el Curso) */}
