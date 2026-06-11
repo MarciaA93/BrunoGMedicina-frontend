@@ -117,52 +117,69 @@ function Turnero() {
         </div>
       ) : (
         <>
-          {/* IZQUIERDA */}
-          <div style={{ flex: 1, color: 'black' }}>
-            <h2 className="mb-3">TURNOS:</h2>
-            <h4 className="text-violet">NUESTROS MASAJES CORPORALES</h4>
-            <p>Descubra nuestros tratamientos</p>
-            <p>
-              Disfrute o regale una experiencia inolvidable. Nuestros masajes premium son un gesto de amor, belleza y bienestar.
-            </p>
-            <hr />
-            <p>
-              <strong className="text-violet"> MASAJE TRADICIONAL :</strong> <br />
-              MEDIO CUERPO Espalda, escápula, cervicales, cuello y rostro. Descontracturante.<br />
-              
-              <strong>Duración:</strong> 30 min
-            </p>
-            <p>
-              <strong className="text-violet"> MASAJE COMPLETO :</strong> <br />
-              CUERPO ENTERO Descontracturante/Terapéutico. Contribuye a reducir el estrés y la ansiedad.
-              Incluye GuaSha y Ventosas.<br />
-              
-              <strong>Duración:</strong> 60 min
-            </p>
-            <p>
-              <strong className="text-violet"> MASAJE EXCLUSIVO :</strong> <br />
-              CUERPO ENTERO Combina todas las técnicas de la medicina china más sesión de ejercicios específicos segun requiera cada caso.<br />
-              
-            
-              <strong>Duración:</strong> 90 min
-            </p>
-            <hr />
-            <h5 className="text-violet">PACK TERAPÉUTICO MASAJE:</h5>
-            <p>
-              <strong>¡OFERTA!</strong>en 1 (UN) pago POR TRANFERENCIA a:<br />
-              ALIAS: brunomtc 
-              Bruno Gabriel Grattoni.<br />
-              * 2 sesiones 60.000 pesos.<br />
-              * 4 sesiones 100.000 pesos.<br />
-            </p>
-            <p>
-             👉Comprando el pack los días y  horarios de las sesiónes se coordinan con el terapeuta.<br />
-             📱 WhatsApp de contacto:<br />
-              +5492617242768<br />
-              Tenés 2 meses para agendar las sesiones.
-            </p>
+         {/* IZQUIERDA */}
+<div style={{ flex: 1, color: "black" }}>
+  <h2 className="mb-3">TURNOS</h2>
 
-          </div>
+  <hr />
+
+  <p>
+    <strong className="text-violet">⚫️⚪️ Sesión de Masaje</strong>
+    <br />
+    Incluye masaje y terapia de ventosas (opcional).
+    <br />
+    <strong>Tiempo:</strong> 60 min aprox.
+    <br />
+    <strong>Precio:</strong> $40.000
+  </p>
+
+  <p>
+    <strong className="text-violet">⚪️⚫️ Sesión de Acupuntura</strong>
+    <br />
+    Incluye técnicas de masaje específicas y acupuntura.
+    <br />
+    Se pueden tratar todo tipo de patologías.
+    <br />
+    <strong>Tiempo:</strong> 40 min aprox.
+    <br />
+    <strong>Precio:</strong> $20.000
+  </p>
+
+  <hr />
+
+  <h5 className="text-violet">PACK TERAPÉUTICO MASAJE</h5>
+
+  <p>
+    <strong>💰 ¡OFERTA!</strong> En un único pago por transferencia a:
+    <br />
+    <strong>ALIAS:</strong> brunomtc
+    <br />
+    Bruno Gabriel Grattoni
+  </p>
+
+  <ul>
+    <li>2 sesiones: $60.000</li>
+    <li>4 sesiones: $100.000</li>
+  </ul>
+
+  <p>
+    👉 Al comprar el pack, los días y horarios de las sesiones se coordinan
+    con el terapeuta.
+  </p>
+
+  <p>
+    📱 <strong>WhatsApp de contacto:</strong>
+    <br />
+    <p className="about-text">
+        
+        <a className="about-link" href="https://wa.me/5492617242768" target="_blank" rel="noopener noreferrer">
+          +5492617242768
+        </a>
+      </p>
+  </p>
+
+  <p>Tenés 2 meses para agendar las sesiones.</p>
+</div>
 
           {/* DERECHA */}
           <div style={{ flex: 1 }}>
