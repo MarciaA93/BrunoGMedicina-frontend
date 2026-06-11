@@ -112,7 +112,7 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
 
         <div className="row">
           {/* CARD 1 */}
-          <div className="col-md-3 mb-4">
+          <div className="col-md-6 mb-4">
             <div className="card custom-card h-100">
               <img src="/img/07.jpg" className="card-img-top" alt="Masaje Tuina" />
               <div className="card-body">
@@ -134,7 +134,7 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
           </div>
 
           {/* CARD 2 */}
-          <div className="col-md-3 mb-4">
+          {/*<div className="col-md-3 mb-4"> 
             <div className="card custom-card h-100">
               <img src="/img/jing2.png" className="card-img-top" alt="Curso online" />
               <div className="card-body">
@@ -165,10 +165,10 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
                 </a>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* CARD 3 */}
-          <div className="col-md-3 mb-4">
+         {/* <div className="col-md-3 mb-4">
             <div className="card custom-card h-100">
               <img src="/img/1.jpg" className="card-img-top" alt="Renueva tu ser" />
               <div className="card-body">
@@ -191,9 +191,9 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
                 </a>
               </div>
             </div>
-          </div>
+          </div>*/} 
           {/* CARD 4 */}
-          <div className="col-md-3 mb-4">
+          <div className="col-md-6 mb-4">
             <div className="card custom-card h-100">
               <img src="/img/03.jpg" className="card-img-top" alt="Curso online" />
               <div className="card-body">

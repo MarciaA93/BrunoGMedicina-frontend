@@ -156,8 +156,12 @@ function Turnero() {
               * 4 sesiones 100.000 pesos.<br />
             </p>
             <p>
-             👉Comprando el pack los días y  horarios de las sesiónes se coordinan con el terapeuta.
+             👉Comprando el pack los días y  horarios de las sesiónes se coordinan con el terapeuta.<br />
+             📱 WhatsApp de contacto:<br />
+              +5492617242768<br />
+              Tenés 2 meses para agendar las sesiones.
             </p>
+
           </div>
 
           {/* DERECHA */}
