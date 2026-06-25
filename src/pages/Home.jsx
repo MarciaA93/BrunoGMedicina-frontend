@@ -116,10 +116,12 @@ Sin duda, este centro es muy recomendable ya sea que sufras de dolores específi
             <div className="card custom-card h-100">
               <img src="/img/07.jpg" className="card-img-top" alt="Masaje Tuina" />
               <div className="card-body">
-                <h5 className="card-title">Masaje Tuina</h5>
+                <h5 className="card-title">Sesiones Integrales</h5>
                 <TextoColapsable>
   <p className="mb-2">
-    El masaje <strong>TuiNa</strong> es una rama terapéutica de la Medicina Tradicional China, diseñada para restablecer el equilibrio del cuerpo y la mente. A través de maniobras específicas se estimula la circulación del Qi y la sangre, liberando bloqueos energéticos, tensiones y contracturas.
+   Te ayudo a mejorar tu calidad de vida mediante la Medicina Tradicional China.
+En nuestras sesiones vamos a combinar el Masaje TuiNa con otros métodos de tratamiento como la Ventosa Terapia y la Acupuntura, para tratar tanto dolores físicos como desequilibrios corporales, emocionales y energéticos.
+Al promover una buena la circulación del Qi y la Sangre liberamos bloqueos energéticos, tensiones y contracturas.
   </p>
 
   <p className="mb-0">

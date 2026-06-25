@@ -230,7 +230,7 @@ const Cursos = () => {
               />
             </div>
             <div className="card-body">
-              <h4 className="card-title">CAPACITACION MASAJE TUINA: </h4>
+              <h4 className="card-title">Capacitación online Masaje Tuina: </h4>
               <h5>TÉCNICAS PROFESIONALES DE LA MEDICINA CHINA</h5>
               <TextoColapsable>
   <p className="mb-2">
