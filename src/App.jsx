@@ -9,6 +9,16 @@ import Cursos from './pages/Cursos';
 import './App.css';
 import Success from './pages/Success';
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import { Navigate } from "react-router-dom";
+
+function PrivateRoute({ children }) {
+  const isAuthenticated = localStorage.getItem("token");
+
+  return isAuthenticated
+    ? children
+    : <Navigate to="/login" />;
+}
+
 
 function App() {
   return (
@@ -21,7 +31,11 @@ function App() {
           <Route path="/turnos" element={<Turnero />} />
           <Route path="/About" element={<About />} />
            <Route path="/login" element={<Login />} />
-         <Route path="/admin" element={<AdminPanel />} />
+         <Route path="/admin"  element={
+    <PrivateRoute>
+      <AdminPanel />
+    </PrivateRoute>
+  } />
          <Route path="/Cursos" element={<Cursos />} />
           <Route path="/success" element={<Success />} />
           
