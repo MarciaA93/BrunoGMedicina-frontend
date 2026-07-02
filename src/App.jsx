@@ -12,11 +12,11 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-  const isAuthenticated = localStorage.getItem("token");
+  const adminUser = localStorage.getItem("adminUser");
 
-  return isAuthenticated
+  return adminUser
     ? children
-    : <Navigate to="/login" />;
+    : <Navigate to="/login" replace />;
 }
 
 
