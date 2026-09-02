@@ -124,9 +124,10 @@ function Turnero() {
   <hr />
 
   <p>
-    <strong className="text-violet">⚫️⚪️ Sesión de Masaje</strong>
+    <strong className="text-violet">⚫️⚪️Sesión de Medicina Tradicional China</strong>
     <br />
-    Incluye masaje y terapia de ventosas (opcional).
+    Incluye Masaje, VentosaTerapia y Acupuntura.
+     Se tratan todo tipo de dolores y patologías. 
     <br />
     <strong>Tiempo:</strong> 60 min aprox.
     <br />
@@ -134,11 +135,9 @@ function Turnero() {
   </p>
 
   <p>
-    <strong className="text-violet">⚪️⚫️ Sesión de Acupuntura</strong>
+    <strong className="text-violet">⚪️⚫️ ️Sesiónes de apoyo: </strong>
     <br />
-    Incluye técnicas de masaje específicas y acupuntura.
-    <br />
-    Se pueden tratar todo tipo de patologías.
+
     <br />
     <strong>Tiempo:</strong> 40 min aprox.
     <br />
