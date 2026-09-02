@@ -127,6 +127,7 @@ function Turnero() {
     <strong className="text-violet">⚫️⚪️Sesión de Medicina Tradicional China</strong>
     <br />
     Incluye Masaje, VentosaTerapia y Acupuntura.
+     <br />
      Se tratan todo tipo de dolores y patologías. 
     <br />
     <strong>Tiempo:</strong> 60 min aprox.
