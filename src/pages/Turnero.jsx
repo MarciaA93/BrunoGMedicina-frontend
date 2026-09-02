@@ -137,7 +137,7 @@ function Turnero() {
 
   <p>
     <strong className="text-violet">⚪️⚫️ ️Sesiónes de apoyo: </strong>
-  
+    <br />
 
    
     <strong>Tiempo:</strong> 40 min aprox.
