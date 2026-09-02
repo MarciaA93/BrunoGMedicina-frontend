@@ -137,9 +137,9 @@ function Turnero() {
 
   <p>
     <strong className="text-violet">⚪️⚫️ ️Sesiónes de apoyo: </strong>
-    <br />
+  
 
-    <br />
+   
     <strong>Tiempo:</strong> 40 min aprox.
     <br />
     <strong>Precio:</strong> $20.000
@@ -147,7 +147,7 @@ function Turnero() {
 
   <hr />
 
-  <h5 className="text-violet">PACK TERAPÉUTICO MASAJE</h5>
+  <h5 className="text-violet">PACK TERAPÉUTICO</h5>
 
   <p>
     <strong>💰 ¡OFERTA!</strong> En un único pago por transferencia a:
