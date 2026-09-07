@@ -130,20 +130,12 @@ function Turnero() {
      <br />
      Se tratan todo tipo de dolores y patologías. 
     <br />
-    <strong>Tiempo:</strong> 60 min aprox.
+    
     <br />
     <strong>Precio:</strong> $40.000
   </p>
 
-  <p>
-    <strong className="text-violet">⚪️⚫️ ️Sesiónes de apoyo: </strong>
-    <br />
-
-   
-    <strong>Tiempo:</strong> 40 min aprox.
-    <br />
-    <strong>Precio:</strong> $20.000
-  </p>
+ 
 
   <hr />
 
