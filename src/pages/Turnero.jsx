@@ -119,58 +119,71 @@ function Turnero() {
         <>
          {/* IZQUIERDA */}
 <div style={{ flex: 1, color: "black" }}>
-  <h2 className="mb-3">TURNOS</h2>
-
-  <hr />
-
-  <p>
-    <strong className="text-violet">⚫️⚪️Sesión de Medicina Tradicional China</strong>
-    <br />
-    Incluye Masaje, VentosaTerapia y Acupuntura.
-     <br />
-     Se tratan todo tipo de dolores y patologías. 
-    <br />
-    
-    <br />
-    <strong>Precio:</strong> $40.000
-  </p>
-
  
+<h2 className="mb-3">TURNOS</h2>
 
-  <hr />
+<hr />
 
-  <h5 className="text-violet">PACK TERAPÉUTICO</h5>
+<p>
+  <strong className="text-violet">
+    ☯️ Sesión Integral (Masaje, Ventosas, Acupuntura):
+  </strong>
+  <br />
+  💰 <strong>$55.000</strong>
+</p>
 
-  <p>
-    <strong>💰 ¡OFERTA!</strong> En un único pago por transferencia a:
-    <br />
-    <strong>ALIAS:</strong> brunomtc
-    <br />
-    Bruno Gabriel Grattoni
-  </p>
+<ul>
+  <li>Pack 2 sesiones: $80.000</li>
+  <li>Pack 4 sesiones: $135.000</li>
+</ul>
 
-  <ul>
-    <li>2 sesiones: $60.000</li>
-    <li>4 sesiones: $100.000</li>
-  </ul>
+<hr />
 
-  <p>
-    👉 Al comprar el pack, los días y horarios de las sesiones se coordinan
-    con el terapeuta.
-  </p>
+<p>
+  <strong className="text-violet">
+    ☯️ Sesión Acupuntura (coordinar por WP):
+  </strong>
+  <br />
+  💰 <strong>$30.000</strong>
+</p>
 
-  <p>
-    📱 <strong>WhatsApp de contacto:</strong>
-    <br />
-    <p className="about-text">
-        
-        <a className="about-link" href="https://wa.me/5492617242768" target="_blank" rel="noopener noreferrer">
-          +5492617242768
-        </a>
-      </p>
-  </p>
+<ul>
+  <li>Pack 2 sesiones: $50.000</li>
+  <li>Pack 4 sesiones: $80.000</li>
+</ul>
 
-  <p>Tenés 2 meses para agendar las sesiones.</p>
+<hr />
+
+<p>
+  ‼️ <strong>Los packs se reservan en un ÚNICO pago por transferencia a:</strong>
+  <br />
+  <strong>ALIAS:</strong> brunomtc
+  <br />
+  Bruno Gabriel Grattoni
+</p>
+
+<p>
+  👉 Al comprar el pack, los días y horarios de las sesiones se coordinan
+  con el terapeuta.
+</p>
+
+<p>
+  📱 <strong>WhatsApp de contacto:</strong>
+</p>
+
+<p className="about-text">
+  <a
+    className="about-link"
+    href="https://wa.me/5492617242768"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    +5492617242768
+  </a>
+</p>
+
+<p>🫡 Tenés 2 meses para agendar las sesiones.</p>
+
 </div>
 
           {/* DERECHA */}
